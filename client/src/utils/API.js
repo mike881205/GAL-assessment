@@ -17,6 +17,6 @@ export default {
     return axios.get("/api/user/?username=" + username);
   },
   inputQuestion: function(section, question) {
-    return axios.post("/api/inputQuestion", section, question)
+    return axios.post("/api/inputquestion", section, question)
   }
 };

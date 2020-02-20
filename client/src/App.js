@@ -74,7 +74,7 @@ class App extends Component {
               <Redirect to="/" />
             </Route>
           </Switch> */}
-          <Route exact path="/questionInput">
+          <Route exact path="/inputquestion">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route>
         </div>

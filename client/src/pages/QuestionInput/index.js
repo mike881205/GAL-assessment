@@ -14,7 +14,7 @@ class QuestionInput extends Component {
     inputQuestion = event => {
         event.preventDefault();
         API.inputQuestion({
-            section: this.state.question,
+            section: this.state.section,
             question: this.state.question
         })
             .then(

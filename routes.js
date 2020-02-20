@@ -51,8 +51,16 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-router.post("/api/questionInput", function (req, res) {
-  res.json(req.question)
+router.post("/api/inputquestion", function (req, res) {
+  db.Question.create({
+    section: req.body.section,
+    question: req.body.question
+  }).then(function () {
+    res.json("question added");
+  }).catch(function (err) {
+    console.log(err);
+    res.json(err);
+  });
 })
 
 module.exports = router;
