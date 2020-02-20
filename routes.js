@@ -51,4 +51,8 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
+router.post("/api/questionInput", function (req, res) {
+  res.json(req.question)
+})
+
 module.exports = router;

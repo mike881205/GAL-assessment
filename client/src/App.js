@@ -8,6 +8,7 @@ import {
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
+import QuestionInput from "./pages/QuestionInput"
 import API from "./utils/API";
 
 class App extends Component {
@@ -47,7 +48,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Switch>
+          {/* <Switch>
             <Route exact path="/">
               {this.state.authorized ? (
                 <Home logout={this.logout} />
@@ -72,9 +73,13 @@ class App extends Component {
             <Route>
               <Redirect to="/" />
             </Route>
-          </Switch>
+          </Switch> */}
+          <Route exact path="/questionInput">
+            <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
+          </Route>
         </div>
       </Router>
+
     );
   }
 }
