@@ -17,9 +17,9 @@ class QuestionInput extends Component {
             section: this.state.question,
             question: this.state.question
         })
-            .then(res => {
+            .then(
                 console.log("question added")
-            })
+            )
             .catch(err => {
                 console.log(err);
             });
