@@ -1,9 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     let Question = sequelize.define("Question", {
-        section: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         question: {
             type: DataTypes.STRING,
             allowNull: false
@@ -12,9 +8,17 @@ module.exports = function(sequelize, DataTypes) {
 
     Question.associate = function (models) {
         Question.hasMany(models.Response, {
-          onDelete: "cascade"
+            onDelete: "cascade"
         });
-      };
+    };
+
+    Question.associate = function (models) {
+        Question.belongsTo(models.Section, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
     return Question;
 };
