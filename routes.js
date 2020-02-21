@@ -65,10 +65,12 @@ router.post("/api/inputquestion", function (req, res) {
 
 router.post("/api/addClient", function (req, res) {
   db.Client.create({
-    name: req.body.name,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
     phone: req.body.phone,
-    number_street: req.body.number_street,
+    streetAddress: req.body.streetAddress,
+    aptUnitNum: req.body.aptUnitNum,
     city: req.body.city,
     state: req.body.state,
     zip: req.body.zip,

@@ -19,7 +19,7 @@ export default {
   inputQuestion: function(section, question) {
     return axios.post("/api/inputquestion", section, question)
   },
-  addClient: function(name, email, phone, number_street, city, state, zip, assessor, audit, dwelling, gateCode) {
-    return axios.post("/api/addClient", name, email, phone, number_street, city, state, zip, assessor, audit, dwelling, gateCode)
+  addClient: function(firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip, assessor, audit, dwelling, gateCode) {
+    return axios.post("/api/addClient", firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip, assessor, audit, dwelling, gateCode)
   }
 };

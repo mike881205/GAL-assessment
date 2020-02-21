@@ -7,10 +7,12 @@ import "./style.css";
 
 class ClientInfo extends Component {
     state = {
-        name: "",
+        firstName: "",
+        lastName: "",
         email: "",
         phone: "",
-        number_street: "",
+        streetAddress: "",
+        aptUnitNum: "",
         city: "",
         state: "",
         zip: "",
@@ -23,10 +25,12 @@ class ClientInfo extends Component {
     addClient = event => {
         event.preventDefault();
         API.addClient({
-            name: this.state.name,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
             email: this.state.email,
             phone: this.state.phone,
-            number_street: this.state.number_street,
+            streetAddress: this.state.streetAddress,
+            aptUnitNum: this.state.aptUnitNum,
             city: this.state.city,
             state: this.state.state,
             zip: this.state.zip,
@@ -57,12 +61,21 @@ class ClientInfo extends Component {
             >
                 <form>
                     <FormGroup>
-                        <Label text="Name" />
+                        <Label text="First Name" />
                         <Input
-                            name="name"
-                            value={this.state.name}
+                            name="firstName"
+                            value={this.state.firstName}
                             onChange={this.handleInputChange}
-                            type="name"
+                            type="firstName"
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label text="Last Name" />
+                        <Input
+                            name="lastName"
+                            value={this.state.lastName}
+                            onChange={this.handleInputChange}
+                            type="lastName"
                         />
                     </FormGroup>
                     <FormGroup>
@@ -84,12 +97,21 @@ class ClientInfo extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label text="House/Building Number, Street Name" />
+                        <Label text="Street Address" />
                         <Input
-                            name="number_street"
-                            value={this.state.number_street}
+                            name="streetAddress"
+                            value={this.state.streetAddress}
                             onChange={this.handleInputChange}
-                            type="number_street"
+                            type="streetAddress"
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label text="Apartment/Unit Number" />
+                        <Input
+                            name="aptUnitNum"
+                            value={this.state.aptUnitNum}
+                            onChange={this.handleInputChange}
+                            type="aptUnitNum"
                         />
                     </FormGroup>
                     <FormGroup>
@@ -158,7 +180,7 @@ class ClientInfo extends Component {
                     {this.state.error ? <Small text={this.state.error} /> : ""}
                     <FormBtn
                         disabled={
-                            this.state.name && this.state.email && this.state.phone && this.state.number_street && this.state.city && this.state.state && this.state.zip && this.state.assessor && this.state.dwelling && this.state.audit ? "" : "disabled"
+                            this.state.firstName && this.state.lastName && this.state.email && this.state.phone && this.state.streetAddress && this.state.city && this.state.state && this.state.zip && this.state.assessor && this.state.dwelling && this.state.audit ? "" : "disabled"
                         }
                         text="Submit"
                         onClick={this.addClient}

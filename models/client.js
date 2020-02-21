@@ -1,6 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     let Client = sequelize.define("Client", {
-        name: {
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            len: [1]
+        },
+        lastName: {
             type: DataTypes.STRING,
             allowNull: false,
             len: [1]
@@ -15,9 +20,14 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             len: [7]
         },
-        number_street: {
+        streetAddress: {
             type: DataTypes.STRING,
             allowNull: false,
+            len: [1], 
+        },
+        aptUnitNum: {
+            type: DataTypes.STRING,
+            allowNull: true,
             len: [1], 
         },
         city: {
