@@ -3,20 +3,28 @@ module.exports = function (sequelize, DataTypes) {
         question: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+          },
+          updatedAt: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.literal('NOW()')
+          }
     });
-
-    Question.associate = function (models) {
-        Question.hasMany(models.Response, {
-            onDelete: "cascade"
-        });
-    };
 
     Question.associate = function (models) {
         Question.belongsTo(models.Section, {
             foreignKey: {
                 allowNull: false
             }
+        });
+    };
+
+    Question.associate = function (models) {
+        Question.hasMany(models.Response, {
+            onDelete: "cascade"
         });
     };
 

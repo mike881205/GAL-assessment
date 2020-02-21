@@ -63,4 +63,25 @@ router.post("/api/inputquestion", function (req, res) {
   });
 })
 
+router.post("/api/addClient", function (req, res) {
+  db.Client.create({
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    number_street: req.body.number_street,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    assessor: req.body.assessor,
+    audit: req.body.audit,
+    dwelling: req.body.dwelling,
+    gateCode: req.body.gateCode
+  }).then(function () {
+    res.json("clent added");
+  }).catch(function (err) {
+    console.log(err);
+    res.json(err);
+  });
+})
+
 module.exports = router;

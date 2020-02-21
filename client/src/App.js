@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import QuestionInput from "./pages/QuestionInput"
+import ClientInfo from "./pages/Client-Info"
 import API from "./utils/API";
 
 class App extends Component {
@@ -74,8 +75,12 @@ class App extends Component {
               <Redirect to="/" />
             </Route>
           </Switch> */}
-          <Route exact path="/inputquestion">
+          {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
+          </Route> */}
+
+          <Route exact path="/">
+            <ClientInfo addClient={this.addClient}></ClientInfo>
           </Route>
         </div>
       </Router>

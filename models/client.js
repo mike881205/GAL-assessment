@@ -2,24 +2,21 @@ module.exports = function(sequelize, DataTypes) {
     let Client = sequelize.define("Client", {
         name: {
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false,
             len: [1]
         },
         email: {
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false,
             len: [1],
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             len: [7]
         },
         number_street: {
             type: DataTypes.STRING,
-            unique: true,
             allowNull: false,
             len: [1], 
         },
@@ -34,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
             len: [2], 
         },
         zip: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             len: [5]
         },
@@ -54,7 +51,7 @@ module.exports = function(sequelize, DataTypes) {
             len: [1],
         },
         gateCode: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             len: [1],
         }
     });
