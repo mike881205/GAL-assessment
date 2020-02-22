@@ -98,4 +98,16 @@ router.get("/api/getSections", function (req, res) {
 
 });
 
+router.get("/api/getQuestions", function (req, res) {
+
+  db.Question.findAll({})
+  .then(dbQuestions => res.json(dbQuestions))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+
+
+});
+
 module.exports = router;

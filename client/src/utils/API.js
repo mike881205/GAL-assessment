@@ -24,5 +24,8 @@ export default {
   },
   getSections: function() {
     return axios.get("/api/getSections")
+  },
+  getQuestions: function() {
+    return axios.get("/api/getQuestions")
   }
 };

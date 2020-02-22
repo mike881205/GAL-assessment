@@ -5,47 +5,75 @@ import { Container } from "../../components/Grid";
 import API from "../../utils/API";
 // import "./style.css";
 
-class SectionForm extends Component {
+class BuildAssessment extends Component {
     state = {
         section: ""
     };
 
-    getSections = () => {
+
+    buildAssessment = () => {
 
         let sections = [];
 
+        let section = {
+            section: "",
+            id: ""
+        }
+
+        let questions = []
+
+        let question = {
+            question: "",
+            sectionId: ""
+        }
+
         API.getSections()
             .then(res => {
-
                 for (let i = 0; i < res.data.length; i++) {
 
-                    let section = {
+                    section = {
                         section: res.data[i].section,
                         id: res.data[i].id
                     }
 
                     sections.push(section)
                 }
-
                 console.log(sections)
-
-                for (let i = 0; i < sections.length; i++) {
-
-                    let p = document.createElement("p");
-
-                    p.innerHTML = sections[i].id + ": " + sections[i].section;
-                    document.body.appendChild(p);
-
-                }
-
             })
             .catch(err => {
                 console.log(err);
             });
+
+        API.getQuestions()
+            .then(res => {
+                for (let i = 0; i < res.data.length; i++) {
+
+                    question = {
+                        question: res.data[i].question,
+                        sectionId: res.data[i].SectionId
+                    }
+
+                    questions.push(question)
+                }
+                console.log(questions)
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+
+        for (let i = 0; i < sections.length; i++) {
+
+            let p = document.createElement("p");
+
+            p.innerHTML = sections[i].id + ": " + sections[i].section;
+            document.body.appendChild(p);
+        }
+
     };
 
     componentDidMount() {
-        this.getSections()
+        this.buildAssessment()
     }
 
     // handleInputChange = event => {
@@ -196,4 +224,4 @@ class SectionForm extends Component {
     }
 }
 
-export default SectionForm;
+export default BuildAssessment;
