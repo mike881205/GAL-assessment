@@ -36,10 +36,10 @@ router.get("/api/logout", function (req, res) {
 router.get("/api/user", function (req, res) {
   if (req.query.username) {
     db.User.find({
-      where: {username: req.query.username}
-    }).then(function(result) {
-      res.json(result ? {length: result.length} : {length: 0});
-    }).catch(function(err){
+      where: { username: req.query.username }
+    }).then(function (result) {
+      res.json(result ? { length: result.length } : { length: 0 });
+    }).catch(function (err) {
       res.json(err);
     })
   } else {
@@ -85,5 +85,17 @@ router.post("/api/addClient", function (req, res) {
     res.json(err);
   });
 })
+
+router.get("/api/getSections", function (req, res) {
+
+  db.Section.findAll({})
+  .then(dbSections => res.json(dbSections))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+
+
+});
 
 module.exports = router;

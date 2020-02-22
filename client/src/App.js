@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import QuestionInput from "./pages/QuestionInput"
 import ClientInfo from "./pages/Client-Info"
+import SectionForm from "./pages/sectionForm"
 import API from "./utils/API";
 
 class App extends Component {
@@ -78,9 +79,11 @@ class App extends Component {
           {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route> */}
-
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <ClientInfo addClient={this.addClient}></ClientInfo>
+          </Route> */}
+          <Route exact path="/">
+            <SectionForm />
           </Route>
         </div>
       </Router>

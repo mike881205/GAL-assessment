@@ -21,5 +21,8 @@ export default {
   },
   addClient: function(firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip, assessor, audit, dwelling, gateCode) {
     return axios.post("/api/addClient", firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip, assessor, audit, dwelling, gateCode)
+  },
+  getSections: function() {
+    return axios.get("/api/getSections")
   }
 };
