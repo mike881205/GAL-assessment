@@ -18,50 +18,23 @@ class SectionForm extends Component {
             .then(res => {
 
                 for (let i = 0; i < res.data.length; i++) {
-                    sections.push(res.data[i].section)
+
+                    let section = {
+                        section: res.data[i].section,
+                        id: res.data[i].id
+                    }
+
+                    sections.push(section)
                 }
 
                 console.log(sections)
 
                 for (let i = 0; i < sections.length; i++) {
 
-                    // let container = document.getElementsByClassName("container")
+                    let p = document.createElement("p");
 
-                    // let row = document.createElement("div")
-                    // .classList.add("row")
-
-                    // let col = document.createElement("div")
-                    // .classList.add("col-sm")
-
-                    // container.appendChild(row)
-
-                    // row.appendChild(col)
-
-                    let section = document.createElement("p");
-
-                    section.innerHTML = sections[i];
-                    document.body.appendChild(section);
-
-                    // let dropDiv = document.createElement("div")
-                    //     .classList.add("dropdown")
-
-                    // document.body.appendChild(dropDiv)
-
-                    // let dropButton = document.createElement("button")
-                    //     .classList.add("dropbtn")
-
-                    // dropDiv.appendChild(dropButton)
-
-                    // let dropContent = document.createElement("div")
-                    //     .classList.add("dropdown-content")
-                    //     .setAttribute("id", "myDropdown")
-
-                    // dropButton.appendChild(dropContent)
-
-                    // let dropItem = document.createElement("a")
-                    // dropItem.text("N/A")
-
-                    // dropContent.appendChild(dropItem)
+                    p.innerHTML = sections[i].id + ": " + sections[i].section;
+                    document.body.appendChild(p);
 
                 }
 
