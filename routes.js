@@ -88,7 +88,7 @@ router.post("/api/addClient", function (req, res) {
 
 router.get("/api/getSections", function (req, res) {
 
-  db.Section.findAll({})
+  db.Section.findAll({include:[db.Question]})
   .then(dbSections => res.json(dbSections))
     .catch(err => {
       console.log(err);
@@ -98,9 +98,13 @@ router.get("/api/getSections", function (req, res) {
 
 });
 
-router.get("/api/getQuestions", function (req, res) {
+router.get("/api/getQuestions/:id", function (req, res) {
 
-  db.Question.findAll({})
+  db.Question.findAll({
+    where: {
+      SectionId: req.params.sectionID
+    }
+  })
   .then(dbQuestions => res.json(dbQuestions))
     .catch(err => {
       console.log(err);

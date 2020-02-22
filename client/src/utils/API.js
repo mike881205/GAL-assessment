@@ -25,7 +25,7 @@ export default {
   getSections: function() {
     return axios.get("/api/getSections")
   },
-  getQuestions: function() {
-    return axios.get("/api/getQuestions")
+  getQuestions: function(sectionID) {
+    return axios.get("/api/getQuestions/" + sectionID)
   }
 };

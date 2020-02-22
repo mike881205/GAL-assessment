@@ -13,62 +13,20 @@ class BuildAssessment extends Component {
 
     buildAssessment = () => {
 
-        let sections = [];
+        let assessment = []
 
-        let section = {
+        let sectionQuestions = {
             section: "",
-            id: ""
-        }
-
-        let questions = []
-
-        let question = {
-            question: "",
-            sectionId: ""
+            questions: []
         }
 
         API.getSections()
             .then(res => {
-                for (let i = 0; i < res.data.length; i++) {
-
-                    section = {
-                        section: res.data[i].section,
-                        id: res.data[i].id
-                    }
-
-                    sections.push(section)
-                }
-                console.log(sections)
+                console.log(res);
             })
             .catch(err => {
                 console.log(err);
             });
-
-        API.getQuestions()
-            .then(res => {
-                for (let i = 0; i < res.data.length; i++) {
-
-                    question = {
-                        question: res.data[i].question,
-                        sectionId: res.data[i].SectionId
-                    }
-
-                    questions.push(question)
-                }
-                console.log(questions)
-            })
-            .catch(err => {
-                console.log(err);
-            });
-
-
-        for (let i = 0; i < sections.length; i++) {
-
-            let p = document.createElement("p");
-
-            p.innerHTML = sections[i].id + ": " + sections[i].section;
-            document.body.appendChild(p);
-        }
 
     };
 
