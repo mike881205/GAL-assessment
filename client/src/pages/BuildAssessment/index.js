@@ -40,7 +40,8 @@ class BuildAssessment extends Component {
         return (
             <div>
                 {this.state.sections.map(index => (
-                    <Section 
+                    <Section
+                        key={index.id}
                         section={index}
                     />
                 ))}
