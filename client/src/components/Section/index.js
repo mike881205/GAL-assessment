@@ -18,6 +18,7 @@ class Section extends React.Component {
                     <div className="col-sm-6">
                     </div>
                 </div>
+                {this.props.children}
             </div>
         );
     }
