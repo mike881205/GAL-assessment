@@ -1,14 +1,13 @@
 import React from "react";
-import Questions from "../../components/Questions"
+import Question from "../Question"
 
 class Section extends React.Component {
     render() {
-        const { section } = this.props.section;
         return (
             <div>
                 <div className="row">
                     <div className="col-sm-3">
-                        <h3> {section} </h3>
+                        <h3> {this.props.section} </h3>
                     </div>
                     <div className="col-sm-3">
                         <div className="row">
@@ -19,7 +18,6 @@ class Section extends React.Component {
                     <div className="col-sm-6">
                     </div>
                 </div>
-                <Questions />
             </div>
         );
     }
