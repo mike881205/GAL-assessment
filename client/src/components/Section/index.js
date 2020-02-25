@@ -11,8 +11,12 @@ class Section extends React.Component {
                     </div>
                     <div className="col-sm-3">
                         <div className="row">
-                            <input type="checkbox" label="Check me out"></input>
-                            <p>N/A</p>
+                            <div className="col-sm-1">
+                                <input type="checkbox"></input>
+                            </div>
+                            <div className="col-sm">
+                                <p>N/A</p>
+                            </div>
                         </div>
                     </div>
                     <div className="col-sm-6">
