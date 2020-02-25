@@ -7,7 +7,7 @@ import Section from "../../components/Section"
 import Question from "../../components/Question"
 // import "./style.css";
 
-class BuildAssessment extends Component {
+class Assessment extends Component {
     state = {
         sections: []
     };
@@ -49,7 +49,7 @@ class BuildAssessment extends Component {
     }
 }
 
-export default BuildAssessment;
+export default Assessment;
 
     // handleInputChange = event => {
     //     const { name, value } = event.target;
