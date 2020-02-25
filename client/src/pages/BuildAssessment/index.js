@@ -29,13 +29,6 @@ class BuildAssessment extends Component {
         this.buildAssessment()
     }
 
-    // handleInputChange = event => {
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //         [name]: value.trim()
-    //     });
-    // };
-
     render() {
         return (
             <div>
@@ -51,3 +44,10 @@ class BuildAssessment extends Component {
 }
 
 export default BuildAssessment;
+
+    // handleInputChange = event => {
+    //     const { name, value } = event.target;
+    //     this.setState({
+    //         [name]: value.trim()
+    //     });
+    // };
