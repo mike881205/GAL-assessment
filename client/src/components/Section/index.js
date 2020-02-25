@@ -2,8 +2,10 @@ import React from "react";
 import Questions from "../../components/Questions"
 
 class Section extends React.Component {
+
     render() {
-        const { section } = this.props.section;
+        const { section, Questions } = this.props.assessment;
+
         return (
             <div>
                 <div className="row">
@@ -19,7 +21,11 @@ class Section extends React.Component {
                     <div className="col-sm-6">
                     </div>
                 </div>
-                <Questions />
+                <div>
+                    <Questions
+                        questions={Questions}
+                    />
+                </div>
             </div>
         );
     }

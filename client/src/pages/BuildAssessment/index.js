@@ -8,7 +8,7 @@ import Section from "../../components/Section"
 
 class BuildAssessment extends Component {
     state = {
-        sections: []
+        assessmentData: []
     };
 
 
@@ -17,7 +17,7 @@ class BuildAssessment extends Component {
         API.getSections()
             .then(res => {
                 console.log(res);
-                this.setState({sections: res.data})
+                this.setState({assessmentData: res.data})
             })
             .catch(err => {
                 console.log(err);
@@ -39,10 +39,10 @@ class BuildAssessment extends Component {
     render() {
         return (
             <div>
-                {this.state.sections.map(index => (
+                {this.state.assessmentData.map(index => (
                     <Section
                         key={index.id}
-                        section={index}
+                        assessment={index}
                     />
                 ))}
             </div>
