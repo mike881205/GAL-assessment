@@ -1,11 +1,11 @@
 import React from "react";
 
-class Questions extends React.Component {
+class Question extends React.Component {
     render() {
         return (
             <div className="row">
                 <div className="col-sm">
-                    <p>Are shrubs, bushes and grass trimmed back or removed so they do not infringe on or obstruct the walkway (potential tripping hazard)?</p>
+                    <p>{this.props.question}</p>
                 </div>
                 <div className="col-sm dropdown">
                     <select className="form-control">
@@ -26,4 +26,4 @@ class Questions extends React.Component {
     }
 }
 
-export default Questions
+export default Question

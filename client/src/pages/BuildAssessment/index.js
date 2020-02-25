@@ -4,6 +4,7 @@ import { FormGroup, Input, Label, Small, FormBtn } from "../../components/Form";
 import { Container } from "../../components/Grid";
 import API from "../../utils/API";
 import Section from "../../components/Section"
+import Question from "../../components/Question"
 // import "./style.css";
 
 class BuildAssessment extends Component {
@@ -17,7 +18,7 @@ class BuildAssessment extends Component {
         API.getSections()
             .then(res => {
                 console.log(res);
-                this.setState({sections: res.data})
+                this.setState({ sections: res.data })
             })
             .catch(err => {
                 console.log(err);
@@ -29,21 +30,19 @@ class BuildAssessment extends Component {
         this.buildAssessment()
     }
 
-    // handleInputChange = event => {
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //         [name]: value.trim()
-    //     });
-    // };
-
     render() {
         return (
             <div>
-                {this.state.sections.map(index => (
-                    <Section
-                        key={index.id}
-                        section={index}
-                    />
+                {this.state.sections.map(section => (
+                    <Section key={section.id} id={section.id} section={section.section}>
+                        {section.Questions.map(question => (
+                            <Question
+                                key={question.id}
+                                id={question.id}
+                                question={question.question}
+                            />
+                        ))}
+                    </Section>
                 ))}
             </div>
         );
@@ -51,3 +50,10 @@ class BuildAssessment extends Component {
 }
 
 export default BuildAssessment;
+
+    // handleInputChange = event => {
+    //     const { name, value } = event.target;
+    //     this.setState({
+    //         [name]: value.trim()
+    //     });
+    // };
