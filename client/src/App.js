@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import QuestionInput from "./pages/QuestionInput"
 import ClientInfo from "./pages/Client-Info"
 import Assessment from "./pages/Assessment"
+import Clients from "./pages/Clients"
 import API from "./utils/API";
 
 class App extends Component {
@@ -79,12 +80,20 @@ class App extends Component {
           {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route> */}
-          {/* <Route exact path="/">
+          {/* <Route path="/">
             <ClientInfo addClient={this.addClient}></ClientInfo>
           </Route> */}
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Assessment />
+          </Route> */}
+          <Route path="/">
+            <Clients />
           </Route>
+
+          {/* <Route path="/">
+            <Home logout={this.logout} />
+          </Route> */}
+
         </div>
       </Router>
 

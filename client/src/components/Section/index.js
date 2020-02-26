@@ -1,5 +1,4 @@
 import React from "react";
-import Question from "../Question"
 
 class Section extends React.Component {
     render() {
