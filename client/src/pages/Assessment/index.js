@@ -25,12 +25,11 @@ class Assessment extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // console.log(event.target[1].name);
+
         let responses = [];
 
-
-    
         for (let i = 0; i < event.target.length; i++) {
+
             let question = {
                 SectionId: "",
                 QuestionId: "",
@@ -39,12 +38,11 @@ class Assessment extends Component {
                 comment: ""
             }
             let name = event.target[i].name
-
             let splitName = name.split("-")
-
             let category = splitName[2]
 
             if (name) {
+
                 if (category === "response") {
                     question.response = event.target[i].value
                 }
@@ -58,9 +56,7 @@ class Assessment extends Component {
                 question.SectionId = parseInt(splitName[0])
                 question.QuestionId = parseInt(splitName[1])
                 responses.push(question);
-
             }
-
         }
 
         let submission = []
@@ -68,14 +64,29 @@ class Assessment extends Component {
         for (let i = 0; i < responses.length; i++) {
 
             if (responses[i].response !== "Response" && responses[i].response !== "") {
-                responses[i].observation = responses[i+1].observation
-                responses[i].comment = responses[i+2].comment
+                responses[i].observation = responses[i + 1].observation
+                responses[i].comment = responses[i + 2].comment
                 submission.push(responses[i])
             }
-
         }
 
-        console.log(submission)
+        for (let i = 0; i < submission.length; i++) {
+
+            API.submitAssessment({
+                SectionId: submission[i].SectionId,
+                QuestionId: submission[i].QuestionId,
+                response: submission[i].response,
+                observation: submission[i].observation,
+                comment: submission[i].comment
+            })
+                .then(
+                    console.log("Question Responses Submitted")
+                )
+                .catch(err => {
+                    console.log(err);
+                });
+
+        }
 
     }
 

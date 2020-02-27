@@ -115,13 +115,27 @@ router.get("/api/getQuestions/:id", function (req, res) {
 });
 
 router.get("/api/getClients", function (req, res) {
-
   db.Client.findAll({})
     .then(dbClients => res.json(dbClients))
     .catch(err => {
       console.log(err);
       res.json(err);
     });
+})
+
+router.post("/api/submitAssessment", function (req, res) {
+  db.Response.create({
+    SectionId: req.body.SectionId,
+    QuestionId: req.body.QuestionId,
+    response: req.body.response,
+    observation: req.body.observation,
+    comment: req.body.comment
+  }).then(function () {
+    res.json("Assessment Submitted");
+  }).catch(function (err) {
+    console.log(err);
+    res.json(err);
+  });
 })
 
 module.exports = router;

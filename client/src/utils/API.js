@@ -30,5 +30,8 @@ export default {
   },
   getClients: function() {
     return axios.get("/api/getClients")
+  },
+  submitAssessment: function(SectionId, QuestionId, response, observation, comment) {
+    return axios.post("/api/submitAssessment", SectionId, QuestionId, response, observation, comment)
   }
 };
