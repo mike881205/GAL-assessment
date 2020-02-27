@@ -8,7 +8,7 @@ class Question extends React.Component {
                     <p>{this.props.question}</p>
                 </div>
                 <div className="col-sm dropdown">
-                    <select className="form-control">
+                    <select className="form-control" name={`${this.props.section}-${this.props.id}-response`}>
                     <option defaultValue="" disabled selected>Response</option>
                         <option>Yes</option>
                         <option>No</option>
@@ -16,10 +16,10 @@ class Question extends React.Component {
                     </select>
                 </div>
                 <div className="col-sm form-group">
-                    <input type="observation" className="form-control" id="observation" placeholder="Observation"></input>
+                    <input type="observation" className="form-control" id="observation" placeholder="Observation" name={`${this.props.section}-${this.props.id}-observation`}></input>
                 </div>
                 <div className="col-sm form-group">
-                    <input type="comment" className="form-control" id="comment" placeholder="Comment"></input>
+                    <input type="comment" className="form-control" id="comment" placeholder="Comment" name={`${this.props.section}-${this.props.id}-comment`}></input>
                 </div>
             </div>
         );

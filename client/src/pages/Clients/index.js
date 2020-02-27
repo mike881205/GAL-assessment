@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../../components/Grid";
+import { Container } from "../../components/Grid";
 import ClientRow from "../../components/ClientRow"
 
 class Clients extends Component {
@@ -27,7 +27,7 @@ class Clients extends Component {
     render() {
         return (
             <Container fluid>
-                <div className="overflow-auto text-center">
+                <div className="overflow-auto text-center clientBox">
                     <div className="row">
                         <div className="col-sm">
                             <h3>Last Name</h3>

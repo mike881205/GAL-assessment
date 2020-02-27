@@ -23,25 +23,84 @@ class Assessment extends Component {
 
     };
 
+    handleSubmit = (event) => {
+        event.preventDefault();
+        // console.log(event.target[1].name);
+        let responses = [];
+
+
+    
+        for (let i = 0; i < event.target.length; i++) {
+            let question = {
+                SectionId: "",
+                QuestionId: "",
+                response: "",
+                observation: "",
+                comment: ""
+            }
+            let name = event.target[i].name
+
+            let splitName = name.split("-")
+
+            let category = splitName[2]
+
+            if (name) {
+                if (category === "response") {
+                    question.response = event.target[i].value
+                }
+                if (category === "observation") {
+                    question.observation = event.target[i].value
+                }
+                if (category === "comment") {
+                    question.comment = event.target[i].value
+                }
+
+                question.SectionId = parseInt(splitName[0])
+                question.QuestionId = parseInt(splitName[1])
+                responses.push(question);
+
+            }
+
+        }
+
+        let submission = []
+
+        for (let i = 0; i < responses.length; i++) {
+
+            if (responses[i].response !== "Response" && responses[i].response !== "") {
+                responses[i].observation = responses[i+1].observation
+                responses[i].comment = responses[i+2].comment
+                submission.push(responses[i])
+            }
+
+        }
+
+        console.log(submission)
+
+    }
+
+
     componentDidMount() {
         this.buildAssessment()
     }
 
     render() {
         return (
-            <div>
+            <form onSubmit={this.handleSubmit}>
                 {this.state.sections.map(section => (
                     <Section key={section.id} id={section.id} section={section.section}>
                         {section.Questions.map(question => (
                             <Question
                                 key={question.id}
                                 id={question.id}
+                                section={question.SectionId}
                                 question={question.question}
                             />
                         ))}
                     </Section>
                 ))}
-            </div>
+                <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
+            </form>
         );
     }
 }

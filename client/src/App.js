@@ -83,12 +83,12 @@ class App extends Component {
           {/* <Route path="/">
             <ClientInfo addClient={this.addClient}></ClientInfo>
           </Route> */}
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Assessment />
-          </Route> */}
-          <Route path="/">
-            <Clients />
           </Route>
+          {/* <Route path="/">
+            <Clients />
+          </Route> */}
 
           {/* <Route path="/">
             <Home logout={this.logout} />
