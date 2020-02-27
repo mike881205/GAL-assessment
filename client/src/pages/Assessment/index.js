@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 import Section from "../../components/Section"
 import Question from "../../components/Question"
-// import "./style.css";
+import Header from "../../components/Header"
 
 class Assessment extends Component {
     state = {
-        sections: []
+        sections: [],
     };
 
 
@@ -14,7 +14,6 @@ class Assessment extends Component {
 
         API.getSections()
             .then(res => {
-                console.log(res);
                 this.setState({ sections: res.data })
             })
             .catch(err => {
@@ -97,21 +96,24 @@ class Assessment extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                {this.state.sections.map(section => (
-                    <Section key={section.id} id={section.id} section={section.section}>
-                        {section.Questions.map(question => (
-                            <Question
-                                key={question.id}
-                                id={question.id}
-                                section={question.SectionId}
-                                question={question.question}
-                            />
-                        ))}
-                    </Section>
-                ))}
-                <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
-            </form>
+            <div>
+                <Header />
+                <form onSubmit={this.handleSubmit}>
+                    {this.state.sections.map(section => (
+                        <Section key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
+                            {section.Questions.map(question => (
+                                <Question
+                                    key={question.id}
+                                    id={question.id}
+                                    section={question.SectionId}
+                                    question={question.question}
+                                />
+                            ))}
+                        </Section>
+                    ))}
+                    <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
+                </form>
+            </div>
         );
     }
 }

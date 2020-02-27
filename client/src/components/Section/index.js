@@ -1,6 +1,26 @@
 import React from "react";
 
 class Section extends React.Component {
+    state = {
+        checked: false,
+        showQuestions: true
+    };
+
+
+    notApplicable = () => {
+
+        if (this.state.checked === false) {
+            this.setState({ checked: true })
+            this.setState({ showQuestions: false })
+            console.log("Checked")
+        } else {
+            this.setState({ checked: false })
+            this.setState({ showQuestions: true })
+            console.log("Unchecked")
+        }
+
+    }
+
     render() {
         return (
             <div>
@@ -11,7 +31,7 @@ class Section extends React.Component {
                     <div className="col-sm-3">
                         <div className="row">
                             <div className="col-sm-1">
-                                <input type="checkbox"></input>
+                                <input type="checkbox" onClick={this.notApplicable}></input>
                             </div>
                             <div className="col-sm">
                                 <p>N/A</p>

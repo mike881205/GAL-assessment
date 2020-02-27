@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import QuestionInput from "./pages/QuestionInput"
-import ClientInfo from "./pages/Client-Info"
+import ClientInput from "./pages/ClientInput"
 import Assessment from "./pages/Assessment"
 import Clients from "./pages/Clients"
 import API from "./utils/API";
@@ -81,14 +81,14 @@ class App extends Component {
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route> */}
           {/* <Route path="/">
-            <ClientInfo addClient={this.addClient}></ClientInfo>
+            <ClientInput addClient={this.addClient}></ClientInput>
           </Route> */}
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Assessment />
-          </Route>
-          {/* <Route path="/">
-            <Clients />
           </Route> */}
+          <Route path="/">
+            <Clients />
+          </Route>
 
           {/* <Route path="/">
             <Home logout={this.logout} />

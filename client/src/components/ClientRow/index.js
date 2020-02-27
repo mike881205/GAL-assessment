@@ -1,10 +1,20 @@
 import React, { Component } from "react";
+import API from "../../utils/API";
 
 class ClientRow extends Component {
+
+    getClientInfo = () => {
+
+        const {id, firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip} = this.props
+
+        console.log(id, firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip)
+
+    }
+
     render() {
         return (
             <div>
-                <button type="button" className="btn btn-outline-primary">
+                <button type="button" className="btn btn-outline-primary" onClick={this.getClientInfo}>
                     <div className="row">
                         <div className="col-sm">
                             <p> {this.props.lastName} </p>

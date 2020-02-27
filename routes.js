@@ -87,19 +87,15 @@ router.post("/api/addClient", function (req, res) {
 })
 
 router.get("/api/getSections", function (req, res) {
-
   db.Section.findAll({ include: [db.Question] })
     .then(dbSections => res.json(dbSections))
     .catch(err => {
       console.log(err);
       res.json(err);
     });
-
-
 });
 
 router.get("/api/getQuestions/:id", function (req, res) {
-
   db.Question.findAll({
     where: {
       SectionId: req.params.sectionID
@@ -110,8 +106,6 @@ router.get("/api/getQuestions/:id", function (req, res) {
       console.log(err);
       res.json(err);
     });
-
-
 });
 
 router.get("/api/getClients", function (req, res) {
