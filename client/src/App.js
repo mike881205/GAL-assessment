@@ -16,7 +16,8 @@ import API from "./utils/API";
 
 class App extends Component {
   state = {
-    authorized: false
+    authorized: false,
+    client: {}
   };
 
   componentDidMount() {
@@ -46,6 +47,10 @@ class App extends Component {
         console.log(err);
       });
   };
+
+  setClient = client => {
+    this.setState({client: client})
+  }
 
   render() {
     return (
@@ -77,17 +82,18 @@ class App extends Component {
               <Redirect to="/" />
             </Route>
           </Switch> */}
+
           <Route exact path="/">
             <Home logout={this.logout} />
           </Route>
           <Route exact path="/clientinput">
-            <ClientInput addClient={this.addClient}></ClientInput>
+            <ClientInput setClient={this.setClient} client={this.state.client} />
           </Route>
           <Route exact path="/clients">
             <Clients />
           </Route>
           <Route exact path="/assessment">
-            <Assessment />
+            <Assessment clientID={this.state.client.id} />
           </Route>
 
           {/* <Route exact path="/">

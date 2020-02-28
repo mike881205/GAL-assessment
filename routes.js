@@ -78,9 +78,8 @@ router.post("/api/addClient", function (req, res) {
     audit: req.body.audit,
     dwelling: req.body.dwelling,
     gateCode: req.body.gateCode
-  }).then(function () {
-    res.json("clent added");
-  }).catch(function (err) {
+  }).then(client => res.json(client)
+  ).catch(function (err) {
     console.log(err);
     res.json(err);
   });
@@ -119,6 +118,7 @@ router.get("/api/getClients", function (req, res) {
 
 router.post("/api/submitAssessment", function (req, res) {
   db.Response.create({
+    ClientId: req.body.ClientId,
     SectionId: req.body.SectionId,
     QuestionId: req.body.QuestionId,
     response: req.body.response,

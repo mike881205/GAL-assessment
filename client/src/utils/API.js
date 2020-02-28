@@ -31,7 +31,7 @@ export default {
   getClients: function() {
     return axios.get("/api/getClients")
   },
-  submitAssessment: function(SectionId, QuestionId, response, observation, comment) {
-    return axios.post("/api/submitAssessment", SectionId, QuestionId, response, observation, comment)
+  submitAssessment: function(ClientId, SectionId, QuestionId, response, observation, comment) {
+    return axios.post("/api/submitAssessment", ClientId, SectionId, QuestionId, response, observation, comment)
   }
 };

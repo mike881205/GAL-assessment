@@ -41,10 +41,12 @@ class ClientInput extends Component {
             dwelling: this.state.dwelling,
             gateCode: this.state.gateCode
         })
-            .then(
-                this.setState({ clientAdded: true }),
+            .then(res => {
+                this.setState({ clientAdded: true });
+                this.props.setClient(res.data)
+                console.log(this.props.client)
                 console.log("client added")
-            )
+            })
             .catch(err => {
                 console.log(err);
             });

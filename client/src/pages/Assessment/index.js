@@ -11,7 +11,6 @@ class Assessment extends Component {
 
 
     buildAssessment = () => {
-
         API.getSections()
             .then(res => {
                 this.setState({ sections: res.data })
@@ -19,7 +18,6 @@ class Assessment extends Component {
             .catch(err => {
                 console.log(err);
             });
-
     };
 
     handleSubmit = (event) => {
@@ -30,6 +28,7 @@ class Assessment extends Component {
         for (let i = 0; i < event.target.length; i++) {
 
             let question = {
+                ClientId: "",
                 SectionId: "",
                 QuestionId: "",
                 response: "",
@@ -66,12 +65,17 @@ class Assessment extends Component {
                 responses[i].observation = responses[i + 1].observation
                 responses[i].comment = responses[i + 2].comment
                 submission.push(responses[i])
-            }
+            } 
+            // else if ((responses[i].response === "Response" || responses[i].response === "") && responses[i].observation === "" && responses[i].comment === "") {
+            //     alert("you have unanswered responses")
+            //     return
+            // }
         }
 
         for (let i = 0; i < submission.length; i++) {
 
             API.submitAssessment({
+                ClientId: this.props.clientID,
                 SectionId: submission[i].SectionId,
                 QuestionId: submission[i].QuestionId,
                 response: submission[i].response,
