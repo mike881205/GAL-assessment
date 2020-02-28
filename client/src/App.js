@@ -77,20 +77,21 @@ class App extends Component {
               <Redirect to="/" />
             </Route>
           </Switch> */}
-          {/* <Route exact path="/">
-            <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
-          </Route> */}
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Home logout={this.logout} />
           </Route>
-          <Route exact path="/clientInput">
+          <Route exact path="/clientinput">
             <ClientInput addClient={this.addClient}></ClientInput>
-          </Route> */}
-          <Route path="/">
+          </Route>
+          <Route exact path="/clients">
+            <Clients />
+          </Route>
+          <Route exact path="/assessment">
             <Assessment />
           </Route>
-          {/* <Route path="/">
-            <Clients />
+
+          {/* <Route exact path="/">
+            <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route> */}
 
         </div>
