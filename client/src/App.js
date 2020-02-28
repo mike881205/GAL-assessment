@@ -80,18 +80,17 @@ class App extends Component {
           {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route> */}
-          {/* <Route path="/">
+          {/* <Route exact path="/">
+            <Home logout={this.logout} />
+          </Route>
+          <Route exact path="/clientInput">
             <ClientInput addClient={this.addClient}></ClientInput>
           </Route> */}
-          {/* <Route exact path="/">
-            <Assessment />
-          </Route> */}
           <Route path="/">
-            <Clients />
+            <Assessment />
           </Route>
-
           {/* <Route path="/">
-            <Home logout={this.logout} />
+            <Clients />
           </Route> */}
 
         </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { FormBtn } from "../components/Form";
 import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
+import {Link} from 'react-router-dom'
 
 function Home({ logout }) {
   return (
@@ -13,7 +14,7 @@ function Home({ logout }) {
             <Row>
               <Col size="sm-3"></Col>
               <Col size="sm-3">
-                <button type="button" className="btn btn-outline-primary">New Assessment</button>
+                <Link type="button" className="btn btn-outline-primary" to="/clientInput">New Assessment</Link>
               </Col>
               <Col size="sm-3">
                 <button type="button" className="btn btn-outline-primary">View Clients</button>

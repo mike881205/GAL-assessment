@@ -3,7 +3,6 @@ import React from "react";
 class Section extends React.Component {
     state = {
         checked: false,
-        showQuestions: true
     };
 
 
@@ -11,11 +10,9 @@ class Section extends React.Component {
 
         if (this.state.checked === false) {
             this.setState({ checked: true })
-            this.setState({ showQuestions: false })
             console.log("Checked")
         } else {
             this.setState({ checked: false })
-            this.setState({ showQuestions: true })
             console.log("Unchecked")
         }
 
@@ -41,7 +38,9 @@ class Section extends React.Component {
                     <div className="col-sm-6">
                     </div>
                 </div>
-                {this.props.children}
+                {
+                    this.state.checked ? "" : this.props.children
+                }
             </div>
         );
     }
