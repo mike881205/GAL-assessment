@@ -21,6 +21,18 @@ class Clients extends Component {
             });
     }
 
+    getResults = () => {
+        API.getResults({
+            // ClientId: this.props.clientID
+        })
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
     componentDidMount() {
         this.getClients()
     }

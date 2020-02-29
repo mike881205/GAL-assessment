@@ -40,11 +40,10 @@ class ClientInput extends Component {
             audit: this.state.audit,
             dwelling: this.state.dwelling,
             gateCode: this.state.gateCode
-        })
+           })
             .then(res => {
                 this.setState({ clientAdded: true });
                 this.props.setClient(res.data)
-                console.log(this.props.client)
                 console.log("client added")
             })
             .catch(err => {
@@ -199,7 +198,6 @@ class ClientInput extends Component {
                 </div>
             );
         } else {
-
             return (
                 <Redirect to="/assessment" />
             )

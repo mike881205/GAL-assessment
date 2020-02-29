@@ -3,10 +3,12 @@ import API from "../../utils/API";
 import Section from "../../components/Section"
 import Question from "../../components/Question"
 import Header from "../../components/Header"
+import { Redirect } from 'react-router-dom'
 
 class Assessment extends Component {
     state = {
         sections: [],
+        resultsSubmitted: false
     };
 
 
@@ -65,7 +67,7 @@ class Assessment extends Component {
                 responses[i].observation = responses[i + 1].observation
                 responses[i].comment = responses[i + 2].comment
                 submission.push(responses[i])
-            } 
+            }
             // else if ((responses[i].response === "Response" || responses[i].response === "") && responses[i].observation === "" && responses[i].comment === "") {
             //     alert("you have unanswered responses")
             //     return
@@ -82,15 +84,15 @@ class Assessment extends Component {
                 observation: submission[i].observation,
                 comment: submission[i].comment
             })
-                .then(
+                .then(res => {
                     console.log("Question Responses Submitted")
-                )
+                    this.props.setResults(res.data)
+                    this.setState({ resultsSubmitted: true })
+                })
                 .catch(err => {
                     console.log(err);
                 });
-
         }
-
     }
 
 
@@ -99,26 +101,33 @@ class Assessment extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <Header />
-                <form onSubmit={this.handleSubmit}>
-                    {this.state.sections.map(section => (
-                        <Section key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
-                            {section.Questions.map(question => (
-                                <Question
-                                    key={question.id}
-                                    id={question.id}
-                                    section={question.SectionId}
-                                    question={question.question}
-                                />
-                            ))}
-                        </Section>
-                    ))}
-                    <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
-                </form>
-            </div>
-        );
+        if (!this.state.resultsSubmitted) {
+            return (
+                <div>
+                    <Header />
+                    <form onSubmit={this.handleSubmit}>
+                        {this.state.sections.map(section => (
+                            <Section key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
+                                {section.Questions.map(question => (
+                                    <Question
+                                        key={question.id}
+                                        id={question.id}
+                                        section={question.SectionId}
+                                        question={question.question}
+                                    />
+                                ))}
+                            </Section>
+                        ))}
+                        <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
+                    </form>
+                </div>
+            );
+        } else {
+            return (
+                <Redirect to="/results" />
+            )
+        }
+
     }
 }
 

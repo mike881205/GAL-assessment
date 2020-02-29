@@ -5,6 +5,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import API from "./utils/API";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
@@ -12,12 +13,14 @@ import QuestionInput from "./pages/QuestionInput"
 import ClientInput from "./pages/ClientInput"
 import Assessment from "./pages/Assessment"
 import Clients from "./pages/Clients"
-import API from "./utils/API";
+import Results from "./pages/Results";
+
 
 class App extends Component {
   state = {
     authorized: false,
-    client: {}
+    client: {},
+    results: []
   };
 
   componentDidMount() {
@@ -50,6 +53,10 @@ class App extends Component {
 
   setClient = client => {
     this.setState({client: client})
+  }
+
+  setResults = results => {
+    this.setState({results: results})
   }
 
   render() {
@@ -93,7 +100,10 @@ class App extends Component {
             <Clients />
           </Route>
           <Route exact path="/assessment">
-            <Assessment clientID={this.state.client.id} />
+            <Assessment setResults={this.setResults} clientID={this.state.client.id} />
+          </Route>
+          <Route exact path="/results">
+            <Results results={this.state.results} />
           </Route>
 
           {/* <Route exact path="/">

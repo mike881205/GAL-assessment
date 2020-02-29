@@ -124,12 +124,24 @@ router.post("/api/submitAssessment", function (req, res) {
     response: req.body.response,
     observation: req.body.observation,
     comment: req.body.comment
-  }).then(function () {
-    res.json("Assessment Submitted");
-  }).catch(function (err) {
-    console.log(err);
-    res.json(err);
-  });
+  }).then(dbResults => res.json(dbResults))
+    .catch(function (err) {
+      console.log(err);
+      res.json(err);
+    });
+})
+
+router.get("api/getResults", function (req, res) {
+  db.Response.findAll({
+    where: {
+      ClientId: req.params.ClientId
+    }
+  })
+    .then(dbResults => res.json(dbResults))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
 })
 
 module.exports = router;
