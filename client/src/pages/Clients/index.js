@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import { Container } from "../../components/Grid";
 import ClientRow from "../../components/ClientRow"
 import Header from "../../components/Header"
+import "./style.css"
 
 class Clients extends Component {
 
@@ -42,7 +43,7 @@ class Clients extends Component {
             <div>
                 <Header />
                 <Container fluid>
-                    <div className="overflow-auto text-center clientBox">
+                    <div className="text-center">
                         <div className="row">
                             <div className="col-sm">
                                 <h3>Last Name</h3>
@@ -60,20 +61,22 @@ class Clients extends Component {
                                 <h3>Phone</h3>
                             </div>
                         </div>
-                        {this.state.clients.map(client => (
-                            <ClientRow
-                                key={client.id}
-                                id={client.id} 
-                                firstName={client.firstName} lastName={client.lastName}
-                                email={client.email}
-                                phone={client.phone}
-                                streetAddress={client.streetAddress}
-                                aptUnitNum={client.aptUnitNum}
-                                city={client.city} 
-                                state={client.state} 
-                                zip={client.zip}
-                            />
-                        ))}
+                        <div className="clientBox">
+                            {this.state.clients.map(client => (
+                                <ClientRow
+                                    key={client.id}
+                                    id={client.id}
+                                    firstName={client.firstName} lastName={client.lastName}
+                                    email={client.email}
+                                    phone={client.phone}
+                                    streetAddress={client.streetAddress}
+                                    aptUnitNum={client.aptUnitNum}
+                                    city={client.city}
+                                    state={client.state}
+                                    zip={client.zip}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </Container>
             </div>
