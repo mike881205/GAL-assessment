@@ -1,6 +1,6 @@
 import React from "react";
 
-class Question extends React.Component {
+class AssessQuestion extends React.Component {
     render() {
         return (
             <div className="row">
@@ -26,4 +26,4 @@ class Question extends React.Component {
     }
 }
 
-export default Question
+export default AssessQuestion

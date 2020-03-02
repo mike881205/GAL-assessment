@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Section from "../../components/Section"
-import Question from "../../components/Question"
+import AssessSection from "../../components/AssessSection"
+import AssessQuestion from "../../components/AssessQuestion"
 import Header from "../../components/Header"
 import { Redirect } from 'react-router-dom'
 
@@ -30,7 +30,7 @@ class Assessment extends Component {
         for (let i = 0; i < event.target.length; i++) {
 
             let question = {
-                ClientId: "",
+                ClientId: this.props.clientID,
                 SectionId: "",
                 QuestionId: "",
                 response: "",
@@ -85,8 +85,7 @@ class Assessment extends Component {
                 comment: submission[i].comment
             })
                 .then(res => {
-                    console.log("Question Responses Submitted")
-                    this.props.setResults(res.data)
+                    this.props.setResults(submission)
                     this.setState({ resultsSubmitted: true })
                 })
                 .catch(err => {
@@ -107,16 +106,16 @@ class Assessment extends Component {
                     <Header />
                     <form onSubmit={this.handleSubmit}>
                         {this.state.sections.map(section => (
-                            <Section key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
+                            <AssessSection key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
                                 {section.Questions.map(question => (
-                                    <Question
+                                    <AssessQuestion
                                         key={question.id}
                                         id={question.id}
                                         section={question.SectionId}
                                         question={question.question}
                                     />
                                 ))}
-                            </Section>
+                            </AssessSection>
                         ))}
                         <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
                     </form>

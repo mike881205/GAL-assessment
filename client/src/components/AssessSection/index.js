@@ -1,6 +1,6 @@
 import React from "react";
 
-class Section extends React.Component {
+class AssessSection extends React.Component {
     state = {
         checked: false,
     };
@@ -46,4 +46,4 @@ class Section extends React.Component {
     }
 }
 
-export default Section
+export default AssessSection

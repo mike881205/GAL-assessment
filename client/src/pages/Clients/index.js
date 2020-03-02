@@ -14,7 +14,6 @@ class Clients extends Component {
     getClients = () => {
         API.getClients()
             .then(res => {
-                console.log(res.data)
                 this.setState({ clients: res.data })
             })
             .catch(err => {
