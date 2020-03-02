@@ -10,7 +10,7 @@ class AssessSection extends React.Component {
                         <h3> {this.props.section} </h3>
                     </div>
                 </div>
-                {this.props.children}
+            {this.props.children}
             </div>
         );
     }

@@ -4,18 +4,10 @@ class ResultQuestion extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="col-sm">
+                <div className="col-sm-4">
                     <p>{this.props.question}</p>
                 </div>
-                <div className="col-sm">
-                    <p>Response</p>
-                </div>
-                <div className="col-sm">
-                    <p>Observation</p>
-                </div>
-                <div className="col-sm">
-                    <p>Comment</p>
-                </div>
+                {this.props.children}
             </div>
         );
     }

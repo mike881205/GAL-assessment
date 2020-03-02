@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import Header from "../../components/Header"
 import ResultSection from "../../components/ResultSection"
 import ResultQuestion from "../../components/ResultQuestion"
+import ResultResponses from "../../components/ResultResponses"
 
 class Results extends Component {
 
@@ -44,14 +45,18 @@ class Results extends Component {
                             if (this.resultArry[k].QuestionId === this.resultSections[i].Questions[j].id) {
                                 let questObj = {
                                     question: "",
+                                    responses: []
+                                }
+                                questObj.question = this.resultSections[i].Questions[j].question
+                                let resObj = {
                                     response: "",
                                     observation: "",
                                     comment: ""
                                 }
-                                questObj.question = this.resultSections[i].Questions[j].question
-                                questObj.response = this.resultArry[k].response
-                                questObj.observation = this.resultArry[k].observation
-                                questObj.comment = this.resultArry[k].comment
+                                resObj.response = this.resultArry[k].response
+                                resObj.observation = this.resultArry[k].observation
+                                resObj.comment = this.resultArry[k].comment
+                                questObj.responses.push(resObj)
                                 resultsObj.questions.push(questObj)
                             }
                         }   
@@ -80,12 +85,15 @@ class Results extends Component {
                 {this.fullResults.map(section => (
                     <ResultSection section={section.section}>
                         {section.questions.map(question => (
-                            <ResultQuestion
-                                question={question.question}
-                                response={question.response}
-                                observation={question.observation}
-                                comment={question.comment}
-                            />
+                            <ResultQuestion question={question.question}>
+                                {question.responses.map(response => (
+                                <ResultResponses 
+                                    response={response.response}
+                                    observation={response.observation}
+                                    comment={response.comment}
+                                />
+                                ))}
+                            </ResultQuestion>
                         ))}
                     </ResultSection>
                 ))}
