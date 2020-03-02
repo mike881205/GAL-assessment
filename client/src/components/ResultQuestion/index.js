@@ -7,19 +7,14 @@ class ResultQuestion extends React.Component {
                 <div className="col-sm">
                     <p>{this.props.question}</p>
                 </div>
-                <div className="col-sm dropdown">
-                    <select className="form-control" name={`${this.props.section}-${this.props.id}-response`}>
-                    <option defaultValue="" disabled selected>Response</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                        <option>N/A</option>
-                    </select>
+                <div className="col-sm">
+                    <p>Response</p>
                 </div>
-                <div className="col-sm form-group">
-                    <input type="observation" className="form-control" id="observation" placeholder="Observation" name={`${this.props.section}-${this.props.id}-observation`}></input>
+                <div className="col-sm">
+                    <p>Observation</p>
                 </div>
-                <div className="col-sm form-group">
-                    <input type="comment" className="form-control" id="comment" placeholder="Comment" name={`${this.props.section}-${this.props.id}-comment`}></input>
+                <div className="col-sm">
+                    <p>Comment</p>
                 </div>
             </div>
         );

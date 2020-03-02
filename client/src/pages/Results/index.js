@@ -7,13 +7,12 @@ import ResultQuestion from "../../components/ResultQuestion"
 class Results extends Component {
 
     state = {
-        sections: [],
+        sections: []
     }
 
     resultArry = this.props.results
     resultSections = []
     fullResults = []
-    finalResults = []
 
     buildResults = () => {
 
@@ -62,6 +61,8 @@ class Results extends Component {
 
                 console.log(this.fullResults)
 
+                this.setState({sections: this.fullResults})
+
             })
             .catch(err => {
                 console.log(err);
@@ -76,18 +77,18 @@ class Results extends Component {
         return (
             <div>
                 <Header />
-                {/* {this.state.resultArry.map(section => (
-                    <ResultSection key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
-                        {section.Questions.map(question => (
+                {this.fullResults.map(section => (
+                    <ResultSection section={section.section}>
+                        {section.questions.map(question => (
                             <ResultQuestion
-                                key={question.id}
-                                id={question.id}
-                                section={question.SectionId}
                                 question={question.question}
+                                response={question.response}
+                                observation={question.observation}
+                                comment={question.comment}
                             />
                         ))}
                     </ResultSection>
-                ))} */}
+                ))}
             </div>
         );
     }
