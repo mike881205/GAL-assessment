@@ -59,14 +59,14 @@ class Results extends Component {
                                 questObj.responses.push(resObj)
                                 resultsObj.questions.push(questObj)
                             }
-                        }   
+                        }
                     }
                     this.fullResults.push(resultsObj)
                 }
 
                 console.log(this.fullResults)
 
-                this.setState({sections: this.fullResults})
+                this.setState({ sections: this.fullResults })
 
             })
             .catch(err => {
@@ -87,11 +87,11 @@ class Results extends Component {
                         {section.questions.map(question => (
                             <ResultQuestion question={question.question}>
                                 {question.responses.map(response => (
-                                <ResultResponses 
-                                    response={response.response}
-                                    observation={response.observation}
-                                    comment={response.comment}
-                                />
+                                    <ResultResponses
+                                        response={response.response}
+                                        observation={response.observation}
+                                        comment={response.comment}
+                                    />
                                 ))}
                             </ResultQuestion>
                         ))}

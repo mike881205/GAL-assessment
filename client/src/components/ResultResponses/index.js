@@ -5,13 +5,13 @@ class ResultResponses extends React.Component {
         return (
             <div>
                 <div className="row">
-                    <div className="col-sm">
+                    <div className="col-sm-3">
                         <p>{this.props.response}</p>
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm-3">
                         <p>{this.props.observation}</p>
                     </div>
-                    <div className="col-sm">
+                    <div className="col-sm-3">
                         <p>{this.props.comment}</p>
                     </div>
                     {/* <div className="col-sm-6">
