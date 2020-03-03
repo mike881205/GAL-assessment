@@ -1,0 +1,16 @@
+.jumbotron {
+    padding-top: 65px!important;
+    background-color: #671847!important;
+}
+
+.GALimg {
+    margin: 5%;
+}
+
+.btn-outline-primary {
+    color: white!important;
+}
+
+.btn-outline-primary:hover {
+    color: #186738!important;
+}

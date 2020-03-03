@@ -73,6 +73,7 @@ class Clients extends Component {
                                     city={client.city}
                                     state={client.state}
                                     zip={client.zip}
+                                    setClientResults={this.props.setClientResults}
                                 />
                             ))}
                         </div>

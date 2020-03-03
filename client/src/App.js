@@ -14,13 +14,16 @@ import ClientInput from "./pages/ClientInput"
 import Assessment from "./pages/Assessment"
 import Clients from "./pages/Clients"
 import Results from "./pages/Results";
+import ClientResults from "./pages/ClientResults"
+import "./index.css"
 
 
 class App extends Component {
   state = {
     authorized: false,
     client: {},
-    results: []
+    results: [],
+    clientResults: []
   };
 
   componentDidMount() {
@@ -59,10 +62,14 @@ class App extends Component {
     this.setState({results: results})
   }
 
+  setClientResults = results => {
+    this.setState({clientResults: results})
+  }
+
   render() {
     return (
       <Router>
-        <div>
+        <div className="mainApp">
           {/* <Switch>
             <Route exact path="/">
               {this.state.authorized ? (
@@ -97,13 +104,17 @@ class App extends Component {
             <ClientInput setClient={this.setClient} client={this.state.client} />
           </Route>
           <Route exact path="/clients">
-            <Clients />
+            <Clients setClientResults={this.setClientResults} />
           </Route>
           <Route exact path="/assessment">
             <Assessment setResults={this.setResults} clientID={this.state.client.id} />
           </Route>
           <Route exact path="/results">
             <Results results={this.state.results} />
+          </Route>
+
+          <Route exact path="/clientresults">
+            <ClientResults clientResults={this.state.clientResults} />
           </Route>
 
           {/* <Route exact path="/">

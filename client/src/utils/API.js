@@ -34,7 +34,7 @@ export default {
   submitAssessment: function(ClientId, SectionId, QuestionId, response, observation, comment) {
     return axios.post("/api/submitAssessment", ClientId, SectionId, QuestionId, response, observation, comment)
   },
-  getResultSections: function(id) {
-    return axios.get("api/getResultSections/" + id)
+  getClientResults: function(ClientId) {
+    return axios.get("api/getClientResults/" + ClientId)
   }
 };
