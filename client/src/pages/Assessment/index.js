@@ -3,7 +3,9 @@ import API from "../../utils/API";
 import AssessSection from "../../components/AssessSection"
 import AssessQuestion from "../../components/AssessQuestion"
 import Header from "../../components/Header"
+import Jumbotron from "../../components/Jumbotron";
 import { Redirect } from 'react-router-dom'
+import "./style.css"
 
 class Assessment extends Component {
     state = {
@@ -104,11 +106,41 @@ class Assessment extends Component {
             return (
                 <div>
                     <Header />
+                    <row className="d-flex justify-content-center GALimg">
+                        <img src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" alt="mainImg"></img>
+                    </row>
+                    <Jumbotron className="instructions">
+                        <div className="row">
+                            <div className="col-sm">
+                                <h3>Home Assessment</h3>
+                                <hr></hr>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-sm">
+                                <ul>
+                                    <li>
+                                        <p>Scroll down below to begin the assessment. Each question will have a response, observation, and comment.</p>
+                                    </li>
+                                    <li>
+                                        <p>Select a response for each question. If the responses "Yes" or "No" do not apply to the question, select "N/A" as your response.</p>
+                                    </li>
+                                    <li>
+                                        <p>Observations should include specific notes regarding the current question, e.g., "The slope of the driveway is 20 degrees" .</p>
+                                    </li>
+                                    <li>
+                                        <p>In the comments field, please add any additional notes regarding the section/question that may be relevant when summarizing the report.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </Jumbotron>
                     <form onSubmit={this.handleSubmit}>
                         {this.state.sections.map(section => (
-                            <AssessSection key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
+                            <AssessSection data-aos="fade-right" key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
                                 {section.Questions.map(question => (
                                     <AssessQuestion
+                                        data-aos="fade-up"
                                         key={question.id}
                                         id={question.id}
                                         section={question.SectionId}

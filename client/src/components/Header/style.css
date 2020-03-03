@@ -6,4 +6,6 @@
     z-index:1000;
     right: 0px;
     background-color: #671847!important;
+    border-bottom-style: solid;
+    border-color: white;
 }

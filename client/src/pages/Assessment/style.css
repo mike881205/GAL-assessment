@@ -1,0 +1,13 @@
+body {
+    color: white;
+}
+
+.jumbotron {
+    overflow-y: auto;
+    height:auto;
+    padding: 30px!important;
+}
+
+form {
+    color: black;
+}

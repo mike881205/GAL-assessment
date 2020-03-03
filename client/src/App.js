@@ -97,25 +97,25 @@ class App extends Component {
             </Route>
           </Switch> */}
 
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Home logout={this.logout} />
-          </Route>
-          <Route exact path="/clientinput">
+          </Route> */}
+          {/* <Route exact path="/clientinput">
             <ClientInput setClient={this.setClient} client={this.state.client} />
-          </Route>
-          <Route exact path="/clients">
+          </Route> */}
+          {/* <Route exact path="/clients">
             <Clients setClientResults={this.setClientResults} />
-          </Route>
-          <Route exact path="/assessment">
+          </Route> */}
+          <Route exact path="/">
             <Assessment setResults={this.setResults} clientID={this.state.client.id} />
           </Route>
-          <Route exact path="/results">
+          {/* <Route exact path="/results">
             <Results results={this.state.results} />
-          </Route>
+          </Route> */}
 
-          <Route exact path="/clientresults">
+          {/* <Route exact path="/clientresults">
             <ClientResults clientResults={this.state.clientResults} />
-          </Route>
+          </Route> */}
 
           {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>

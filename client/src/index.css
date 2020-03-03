@@ -12,6 +12,11 @@ code {
     monospace;
 } */
 
+body {
+  background-color: #f1e291;
+  width: 100%;
+}
+
 .mainApp {
-  padding-top: 5%
+  padding-top: 5%;
 }
