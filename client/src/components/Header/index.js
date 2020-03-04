@@ -6,7 +6,7 @@ class Header extends Component {
         return (
             <div>
                 <nav className="navbar navbar-expand-lg">
-                    <h2>Golden Age Living</h2>
+                <img className="GALimg" src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" alt="mainImg"></img>
                 </nav>
             </div>
         )

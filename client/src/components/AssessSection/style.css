@@ -1,0 +1,10 @@
+.section {
+    background-color: #F191D0;
+    border-style: solid;
+    border-color: black;
+    font-family: 'Playfair Display SC', serif;
+}
+
+.questions {
+    margin: 1%;
+}

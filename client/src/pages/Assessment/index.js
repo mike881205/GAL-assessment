@@ -106,10 +106,10 @@ class Assessment extends Component {
             return (
                 <div>
                     <Header />
-                    <row className="d-flex justify-content-center GALimg">
+                    {/* <row className="d-flex justify-content-center ">
                         <img src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" alt="mainImg"></img>
-                    </row>
-                    <Jumbotron className="instructions">
+                    </row> */}
+                    <Jumbotron>
                         <div className="row">
                             <div className="col-sm">
                                 <h3>Home Assessment</h3>
@@ -117,8 +117,8 @@ class Assessment extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-sm">
-                                <ul>
+                            <div className="col-sm text-left">
+                                <ul className="instructions">
                                     <li>
                                         <p>Scroll down below to begin the assessment. Each question will have a response, observation, and comment.</p>
                                     </li>
@@ -130,6 +130,9 @@ class Assessment extends Component {
                                     </li>
                                     <li>
                                         <p>In the comments field, please add any additional notes regarding the section/question that may be relevant when summarizing the report.</p>
+                                    </li>
+                                    <li>
+                                        <p>If a section/questions are not applicable to this assessment, click the "N/A" checkbox to remove that section from the assessment. Uncheck the box to include them.</p>
                                     </li>
                                 </ul>
                             </div>
@@ -145,6 +148,7 @@ class Assessment extends Component {
                                         id={question.id}
                                         section={question.SectionId}
                                         question={question.question}
+                                        className="questions"
                                     />
                                 ))}
                             </AssessSection>

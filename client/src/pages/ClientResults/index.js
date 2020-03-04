@@ -10,9 +10,7 @@ class ClientResults extends Component {
 
         console.log(ClientId)
 
-        API.getClientResults({
-            ClientId: ClientId
-        })
+        API.getClientResults(ClientId)
             .then(res => {
                 console.log(res.data)
             })

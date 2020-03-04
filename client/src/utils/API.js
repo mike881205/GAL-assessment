@@ -35,6 +35,6 @@ export default {
     return axios.post("/api/submitAssessment", ClientId, SectionId, QuestionId, response, observation, comment)
   },
   getClientResults: function(ClientId) {
-    return axios.get("api/getClientResults/" + ClientId)
+    return axios.get("/api/getClientResults/" + ClientId)
   }
 };

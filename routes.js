@@ -131,10 +131,11 @@ router.post("/api/submitAssessment", function (req, res) {
     });
 })
 
-router.get("api/getClientResults/:id", function (req, res) {
+router.get("/api/getClientResults/:id", function (req, res) {
+  console.log("Making it here")
   db.Response.findAll({
     where: {
-      ClientId: req.params.ClientId
+      ClientId: req.params.id
     }
   })
     .then(dbResults => res.json(dbResults))
