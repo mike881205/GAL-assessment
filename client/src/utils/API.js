@@ -25,9 +25,6 @@ export default {
   getSections: function() {
     return axios.get("/api/getSections")
   },
-  getQuestions: function(sectionID) {
-    return axios.get("/api/getQuestions/" + sectionID)
-  },
   getClients: function() {
     return axios.get("/api/getClients")
   },
@@ -36,5 +33,8 @@ export default {
   },
   getClientResults: function(ClientId) {
     return axios.get("/api/getClientResults/" + ClientId)
+  },
+  getResultSections: function(SectionId) {
+    return axios.get("/api/getResultSections/" + SectionId)
   }
 };

@@ -20,12 +20,6 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Section.associate = function (models) {
-    Section.hasMany(models.Response, {
-      onDelete: "cascade"
-    });
-  };
-
-  Section.associate = function (models) {
     Section.hasMany(models.Question, {
       onDelete: "cascade"
     });

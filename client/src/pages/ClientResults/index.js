@@ -4,6 +4,11 @@ import Header from "../../components/Header"
 
 class ClientResults extends Component {
 
+    state = {
+        sections: [],
+        clientResponses: []
+    }
+
     buildClientResults = () => {
 
         let ClientId = this.props.clientResults[0]
@@ -12,7 +17,13 @@ class ClientResults extends Component {
 
         API.getClientResults(ClientId)
             .then(res => {
+
                 console.log(res.data)
+
+                this.setState({clientResponses: res.data})
+
+                
+                
             })
             .catch(err => {
                 console.log(err);

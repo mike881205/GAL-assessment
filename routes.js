@@ -94,19 +94,6 @@ router.get("/api/getSections", function (req, res) {
     });
 });
 
-router.get("/api/getQuestions/:id", function (req, res) {
-  db.Question.findAll({
-    where: {
-      SectionId: req.params.sectionID
-    }
-  })
-    .then(dbQuestions => res.json(dbQuestions))
-    .catch(err => {
-      console.log(err);
-      res.json(err);
-    });
-});
-
 router.get("/api/getClients", function (req, res) {
   db.Client.findAll({})
     .then(dbClients => res.json(dbClients))
@@ -132,10 +119,28 @@ router.post("/api/submitAssessment", function (req, res) {
 })
 
 router.get("/api/getClientResults/:id", function (req, res) {
-  console.log("Making it here")
   db.Response.findAll({
+    include:[
+      {
+          model: db.Section,
+          include: [db.Question]
+      }
+    ],
     where: {
       ClientId: req.params.id
+    }
+  })
+    .then(dbResults => res.json(dbResults))
+    .catch(err => {
+      console.log(err);
+      res.json(err);
+    });
+})
+
+router.get("/api/getResultSections/:id", function (req, res) {
+  db.Section.findAll({
+    where: {
+      id: req.params.id
     }
   })
     .then(dbResults => res.json(dbResults))

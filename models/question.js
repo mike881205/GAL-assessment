@@ -7,11 +7,11 @@ module.exports = function (sequelize, DataTypes) {
         createdAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
-          },
-          updatedAt: {
+        },
+        updatedAt: {
             type: DataTypes.DATE,
             defaultValue: sequelize.literal('NOW()')
-          }
+        }
     });
 
     Question.associate = function (models) {
