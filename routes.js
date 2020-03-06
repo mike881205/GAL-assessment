@@ -122,13 +122,14 @@ router.get("/api/getClientResults/:id", function (req, res) {
   db.Response.findAll({
     include:[
       {
-          model: db.Section,
-          include: [db.Question]
+        model: db.Section,
+        include: [db.Question]
       }
     ],
     where: {
       ClientId: req.params.id
-    }
+    },
+    order: [["SectionId"]]
   })
     .then(dbResults => res.json(dbResults))
     .catch(err => {

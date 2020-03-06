@@ -140,14 +140,14 @@ class Assessment extends Component {
                     </Jumbotron>
                     <form onSubmit={this.handleSubmit}>
                         {this.state.sections.map(section => (
-                            <AssessSection data-aos="fade-right" key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
+                            <AssessSection key={section.id} id={section.id} section={section.section} notApplicable={this.notApplicable}>
                                 {section.Questions.map(question => (
                                     <AssessQuestion
-                                        data-aos="fade-up"
                                         key={question.id}
                                         id={question.id}
                                         section={question.SectionId}
                                         question={question.question}
+                                        // response={"yes"}
                                         className="questions"
                                     />
                                 ))}

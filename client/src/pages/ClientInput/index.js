@@ -40,7 +40,7 @@ class ClientInput extends Component {
             audit: this.state.audit,
             dwelling: this.state.dwelling,
             gateCode: this.state.gateCode
-           })
+        })
             .then(res => {
                 this.setState({ clientAdded: true });
                 this.props.setClient(res.data)
@@ -63,9 +63,7 @@ class ClientInput extends Component {
             return (
                 <div>
                     <Header />
-                    <Container
-                        classes="ClientInput"
-                    >
+                    <Container classes="ClientInput">
                         <form>
                             <FormGroup>
                                 <Label text="First Name" />
@@ -131,13 +129,73 @@ class ClientInput extends Component {
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <Label text="State" />
+                                {/* <Label text="State" />
                                 <Input
                                     name="state"
                                     value={this.state.state}
                                     onChange={this.handleInputChange}
                                     type="state"
-                                />
+                                /> */}
+
+                                <Label text="State" />
+                                <div className="dropdown">
+                                    <select className="form-control" name="state" value={this.state.state}
+                                        onChange={this.handleInputChange}
+                                        type="state">
+                                        <option defaultValue="" disabled selected>Select State</option>
+                                        <option>AK</option>
+                                        <option>AL</option>
+                                        <option>AR</option>
+                                        <option>AZ</option>
+                                        <option>CA</option>
+                                        <option>CO</option>
+                                        <option>CT</option>
+                                        <option>DE</option>
+                                        <option>FL</option>
+                                        <option>GA</option>
+                                        <option>HI</option>
+                                        <option>IA</option>
+                                        <option>ID</option>
+                                        <option>IL</option>
+                                        <option>IN</option>
+                                        <option>KS</option>
+                                        <option>KY</option>
+                                        <option>LA</option>
+                                        <option>MA</option>
+                                        <option>MD</option>
+                                        <option>ME</option>
+                                        <option>MI</option>
+                                        <option>MN</option>
+                                        <option>MO</option>
+                                        <option>MS</option>
+                                        <option>MT</option>
+                                        <option>NC</option>
+                                        <option>ND</option>
+                                        <option>NE</option>
+                                        <option>NH</option>
+                                        <option>NJ</option>
+                                        <option>NM</option>
+                                        <option>NV</option>
+                                        <option>NY</option>
+                                        <option>OH</option>
+                                        <option>OK</option>
+                                        <option>OR</option>
+                                        <option>PA</option>
+                                        <option>RI</option>
+                                        <option>SC</option>
+                                        <option>SD</option>
+                                        <option>TN</option>
+                                        <option>TX</option>
+                                        <option>UT</option>
+                                        <option>VA</option>
+                                        <option>VT</option>
+                                        <option>WA</option>
+                                        <option>WI</option>
+                                        <option>WV</option>
+                                        <option>WY</option>
+                                    </select>
+                                </div>
+
                             </FormGroup>
                             <FormGroup>
                                 <Label text="Zip" />
@@ -167,13 +225,27 @@ class ClientInput extends Component {
                                 />
                             </FormGroup>
                             <FormGroup>
-                                <Label text="Dwelling Type" />
+                                {/* <Label text="Dwelling Type" />
                                 <Input
                                     name="dwelling"
                                     value={this.state.dwelling}
                                     onChange={this.handleInputChange}
                                     type="dwelling"
-                                />
+                                /> */}
+
+                                <Label text="Dwelling Type"/>
+                                <div className="dropdown">
+                                    <select className="form-control" name="dwelling" value={this.state.dwelling}
+                                        onChange={this.handleInputChange}
+                                        type="dwelling">
+                                        <option defaultValue="" disabled selected>Select Dwelling Type</option>
+                                        <option>House</option>
+                                        <option>Condo</option>
+                                        <option>Town Home</option>
+                                        <option>Apartment</option>
+                                    </select>
+                                </div>
+
                             </FormGroup>
                             <FormGroup>
                                 <Label text="Gate Code" />

@@ -7,8 +7,6 @@ class ClientRow extends Component {
 
         const { id, firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip } = this.props
 
-        console.log(id, firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip)
-
         this.props.setClientResults([id, firstName, lastName, email, phone, streetAddress, aptUnitNum, city, state, zip])
 
     }
