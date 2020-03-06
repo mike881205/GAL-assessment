@@ -28,16 +28,26 @@ class AssessSection extends React.Component {
                     </div>
                     <div className="col-sm-3 d-flex align-items-center">
                         <div className="row">
-                            <div className="col-sm-1">
-                                <input type="checkbox" onClick={this.notApplicable}></input>
-                            </div>
-                            <div className="col-sm d-flex align-items-center">
-                                <h5>N/A</h5>
-                            </div>
+                            {this.props.showNAbox ? (
+                                <React.Fragment>
+                                    <div className="col-sm-1">
+                                        <input type="checkbox" onClick={this.notApplicable}></input>
+                                    </div>
+                                    <div className="col-sm d-flex align-items-center">
+                                        <h5>N/A</h5>
+                                    </div>
+                                </React.Fragment>
+                            ) : ("")}
                         </div>
                     </div>
                     <div className="col-sm-6">
                     </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-3">Question</div>
+                    <div className="col-sm-3">Response</div>
+                    <div className="col-sm-3">Observation</div>
+                    <div className="col-sm-3">Comment</div>
                 </div>
                 <div className="questions">
                     {

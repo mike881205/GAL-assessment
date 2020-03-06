@@ -129,7 +129,7 @@ router.get("/api/getClientResults/:id", function (req, res) {
     where: {
       ClientId: req.params.id
     },
-    order: [["SectionId"]]
+    order: [["SectionId", "ASC"]]
   })
     .then(dbResults => res.json(dbResults))
     .catch(err => {
