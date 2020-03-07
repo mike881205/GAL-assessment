@@ -4,8 +4,8 @@ import "./style.css"
 class AssessQuestion extends React.Component {
     render() {
         return (
-            <div className="row" data-aos="fade-right">
-                <div className="col-sm-3">
+            <div className="row text-center" data-aos="fade-right">
+                <div className="col-sm-3 resQ">
                     <p>{this.props.question}</p>
                 </div>
 

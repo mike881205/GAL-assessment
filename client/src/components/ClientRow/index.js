@@ -16,7 +16,7 @@ class ClientRow extends Component {
         return (
             <div>
                 <Link to="/clientresults">
-                    <button type="button" className="btn btn-outline-secondary" onClick={this.getClientInfo}>
+                    <button type="button" className="btn btn-outline-secondary clientBtn" onClick={this.getClientInfo}>
                         <div className="row">
                             <div className="col-sm-1"></div>
                             <div className="col-sm-2">

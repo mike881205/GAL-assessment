@@ -25,7 +25,8 @@ class App extends Component {
     authorized: false,
     client: {},
     results: [],
-    clientResults: []
+    clientResults: [],
+    homeActive: false
   };
 
   componentDidMount() {

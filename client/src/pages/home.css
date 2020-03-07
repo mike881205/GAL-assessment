@@ -1,8 +1,25 @@
+body {
+    color: white;
+}
+
 .jumbotron {
     padding-top: 65px!important;
     background-color: #671847!important;
+    color: white;
+    /* width: 75% */
 }
 
 .GALimg {
     margin: 5%;
+}
+
+.homeBtn {
+    background-color: #F191D0!important;
+    color: black!important;
+    border-color: black;
+}
+
+.homeUL {
+    width: 75%;
+    margin-left: 30%;
 }

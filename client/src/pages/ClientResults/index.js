@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import Header from "../../components/Header"
 import AssessQuestion from "../../components/AssessQuestion"
 import AssessSection from "../../components/AssessSection"
+import "./style.css"
 
 class ClientResults extends Component {
 
