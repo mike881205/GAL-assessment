@@ -95,7 +95,7 @@ router.get("/api/getSections", function (req, res) {
 });
 
 router.get("/api/getClients", function (req, res) {
-  db.Client.findAll({})
+  db.Client.findAll({order: [["createdAt", "DESC"]]})
     .then(dbClients => res.json(dbClients))
     .catch(err => {
       console.log(err);

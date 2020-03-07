@@ -14,6 +14,17 @@ class Clients extends Component {
     getClients = () => {
         API.getClients()
             .then(res => {
+                for (let i = 0; i < res.data.length; i++) {
+                    let createdString1 = res.data[i].createdAt.split(":")
+                    let createdString2 = createdString1[0].split("T")
+                    let createdString3 = createdString2[0].split("-")
+                    let year = parseInt(createdString3[0])
+                    let month = parseInt(createdString3[1])
+                    let day = parseInt(createdString3[2])
+                    let created = (month+"/"+(day-1)+"/"+year)
+                    res.data[i].createdAt = created
+                }
+                console.log(res.data)
                 this.setState({ clients: res.data })
             })
             .catch(err => {
@@ -31,22 +42,24 @@ class Clients extends Component {
                 <Header />
                 <Container fluid>
                     <div className="text-center">
-                        <div className="row">
-                            <div className="col-sm">
+                        <div className="row headings">
+                            <div className="col-sm-1"></div>
+                            <div className="col-sm-2">
                                 <h3>Last Name</h3>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm-2">
                                 <h3>First Name</h3>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm-2">
                                 <h3>City</h3>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm-2">
                                 <h3>State</h3>
                             </div>
-                            <div className="col-sm">
-                                <h3>Phone</h3>
+                            <div className="col-sm-2">
+                                <h3>Date Added</h3>
                             </div>
+                            <div className="col-sm-1"></div>
                         </div>
                         <div className="clientBox">
                             {this.state.clients.map(client => (
@@ -61,6 +74,7 @@ class Clients extends Component {
                                     city={client.city}
                                     state={client.state}
                                     zip={client.zip}
+                                    created={client.createdAt}
                                     setClientResults={this.props.setClientResults}
                                 />
                             ))}

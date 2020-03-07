@@ -159,7 +159,7 @@ class Assessment extends Component {
             );
         } else {
             return (
-                <Redirect to="/results" />
+                <Redirect to="/confirmation" />
             )
         }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
+import "./style.css"
 
 class ClientRow extends Component {
 
@@ -15,23 +16,25 @@ class ClientRow extends Component {
         return (
             <div>
                 <Link to="/clientresults">
-                    <button type="button" className="btn btn-outline-primary" onClick={this.getClientInfo}>
+                    <button type="button" className="btn btn-outline-secondary" onClick={this.getClientInfo}>
                         <div className="row">
-                            <div className="col-sm">
+                            <div className="col-sm-1"></div>
+                            <div className="col-sm-2">
                                 <p> {this.props.lastName} </p>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm-2">
                                 <p> {this.props.firstName} </p>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm-2">
                                 <p> {this.props.city} </p>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm-2">
                                 <p> {this.props.state} </p>
                             </div>
-                            <div className="col-sm">
-                                <p> {this.props.phone} </p>
+                            <div className="col-sm-2">
+                                <p> {this.props.created} </p>
                             </div>
+                            <div className="col-sm-1"></div>
                         </div>
                     </button>
                 </Link>

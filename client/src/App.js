@@ -15,6 +15,7 @@ import Assessment from "./pages/Assessment"
 import Clients from "./pages/Clients"
 import Results from "./pages/Results";
 import ClientResults from "./pages/ClientResults"
+import Confirmation from "./pages/Confirmation"
 import "./index.css"
 
 
@@ -55,15 +56,15 @@ class App extends Component {
   };
 
   setClient = client => {
-    this.setState({client: client})
+    this.setState({ client: client })
   }
 
   setResults = results => {
-    this.setState({results: results})
+    this.setState({ results: results })
   }
 
   setClientResults = results => {
-    this.setState({clientResults: results})
+    this.setState({ clientResults: results })
   }
 
   render() {
@@ -109,13 +110,18 @@ class App extends Component {
           <Route exact path="/assessment">
             <Assessment setResults={this.setResults} clientID={this.state.client.id} />
           </Route>
-          <Route exact path="/results">
-            <Results results={this.state.results} />
+          <Route exact path="/confirmation">
+            <Confirmation />
           </Route>
-
           <Route exact path="/clientresults">
             <ClientResults clientResults={this.state.clientResults} />
           </Route>
+
+
+          {/* <Route exact path="/results">
+            <Results results={this.state.results} />
+          </Route> */}
+
 
           {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
