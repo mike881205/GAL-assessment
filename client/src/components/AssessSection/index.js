@@ -22,7 +22,7 @@ class AssessSection extends React.Component {
     render() {
         return (
             <div>
-                <div className="row section">
+                <div className="row section" data-aos="fade-up">
                     <div className="col-sm-3">
                         <h3> {this.props.section} </h3>
                     </div>
@@ -43,7 +43,7 @@ class AssessSection extends React.Component {
                     <div className="col-sm-6">
                     </div>
                 </div>
-                <div className="row">
+                <div className="row text-center" data-aos="fade-right">
                     <div className="col-sm-3">Question</div>
                     <div className="col-sm-3">Response</div>
                     <div className="col-sm-3">Observation</div>

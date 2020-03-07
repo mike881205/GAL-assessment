@@ -17,6 +17,7 @@ import Results from "./pages/Results";
 import ClientResults from "./pages/ClientResults"
 import Confirmation from "./pages/Confirmation"
 import "./index.css"
+import AOS from 'aos'
 
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     this.isAuthorized();
+    AOS.init()
   }
 
   isAuthorized = () => {

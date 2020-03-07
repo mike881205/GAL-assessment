@@ -15,7 +15,7 @@ function Home({ logout }) {
       </row>
       <Row>
         <Col size="md-12">
-          <Jumbotron>
+          <Jumbotron data-aos="zoom-in">
             <h1>Welcome!</h1>
             <Row>
               <Col size="sm-3"></Col>
