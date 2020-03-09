@@ -43,13 +43,13 @@ class AssessSection extends React.Component {
                     <div className="col-sm-6">
                     </div>
                 </div>
-                <div className="row text-center secHead" data-aos="fade-right">
+                <div className="row text-center secHead" data-aos="fade-up">
                     <div className="col-sm-3">Question</div>
                     <div className="col-sm-3">Response</div>
                     <div className="col-sm-3">Observation</div>
                     <div className="col-sm-3">Comment</div>
                 </div>
-                <hr className="secHr"></hr>
+                <hr className="secHr" data-aos="fade-up"></hr>
                 <div className="questions">
                     {
                         this.state.checked ? "" : this.props.children

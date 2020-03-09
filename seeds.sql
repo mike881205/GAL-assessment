@@ -1,5 +1,5 @@
-USE assess_db;
-INSERT INTO sections
+USE qk6vpj34qoyrw4cr;
+INSERT INTO Sections
     (section)
 VALUES
     ("Entry Lighting"),
@@ -39,7 +39,7 @@ VALUES
     -- ("Needs Consideration"),
     -- ("Basement");
 
-INSERT INTO questions
+INSERT INTO Questions
     (question, SectionId)
 VALUES
 

@@ -21,7 +21,7 @@ class Clients extends Component {
                     let year = parseInt(createdString3[0])
                     let month = parseInt(createdString3[1])
                     let day = parseInt(createdString3[2])
-                    let created = (month+"/"+(day-1)+"/"+year)
+                    let created = (month+"/"+(day)+"/"+year)
                     res.data[i].createdAt = created
                 }
                 console.log(res.data)
