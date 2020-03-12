@@ -51,7 +51,7 @@ router.get("/api/authorized", isAuthenticated, function (req, res) {
   res.json(req.user);
 });
 
-router.post("/api/inputquestion", function (req, res) {
+router.post("/api/inputquestion", isAuthenticated, function (req, res) {
   db.Question.create({
     section: req.body.section,
     question: req.body.question
@@ -63,7 +63,7 @@ router.post("/api/inputquestion", function (req, res) {
   });
 })
 
-router.post("/api/addClient", function (req, res) {
+router.post("/api/addClient", isAuthenticated, function (req, res) {
   db.Client.create({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -85,7 +85,7 @@ router.post("/api/addClient", function (req, res) {
   });
 })
 
-router.get("/api/getSections", function (req, res) {
+router.get("/api/getSections", isAuthenticated, function (req, res) {
   db.Section.findAll({ include: [db.Question] })
     .then(dbSections => res.json(dbSections))
     .catch(err => {
@@ -94,7 +94,7 @@ router.get("/api/getSections", function (req, res) {
     });
 });
 
-router.get("/api/getClients", function (req, res) {
+router.get("/api/getClients", isAuthenticated, function (req, res) {
   db.Client.findAll({order: [["createdAt", "DESC"]]})
     .then(dbClients => res.json(dbClients))
     .catch(err => {
@@ -103,7 +103,7 @@ router.get("/api/getClients", function (req, res) {
     });
 })
 
-router.post("/api/submitAssessment", function (req, res) {
+router.post("/api/submitAssessment", isAuthenticated, function (req, res) {
   db.Response.create({
     ClientId: req.body.ClientId,
     SectionId: req.body.SectionId,
@@ -118,7 +118,7 @@ router.post("/api/submitAssessment", function (req, res) {
     });
 })
 
-router.get("/api/getClientResults/:id", function (req, res) {
+router.get("/api/getClientResults/:id", isAuthenticated, function (req, res) {
   db.Response.findAll({
     include:[
       {
@@ -138,7 +138,7 @@ router.get("/api/getClientResults/:id", function (req, res) {
     });
 })
 
-router.get("/api/getResultSections/:id", function (req, res) {
+router.get("/api/getResultSections/:id", isAuthenticated, function (req, res) {
   db.Section.findAll({
     where: {
       id: req.params.id
