@@ -3,5 +3,7 @@ body {
 }
 
 .loginContainer {
+  padding-top: 8%;
+  padding-bottom: 5%;
   width: 300px;
 }

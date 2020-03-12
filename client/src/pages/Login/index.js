@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormGroup, Input, Label, Small, FormBtn } from "../../components/Form";
 import { Container } from "../../components/Grid";
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 import API from "../../utils/API";
 import "./style.css";
 
@@ -33,7 +35,7 @@ class Login extends Component {
         if (err.response.data === "Unauthorized") {
           this.setState({ error: "Username or password incorrect!" });
         } else {
-          this.setState({error: "A server error has occured."});
+          this.setState({ error: "A server error has occured." });
         };
       });
 
@@ -49,40 +51,44 @@ class Login extends Component {
 
   render() {
     return (
-      <Container
-        classes="loginContainer"
-      >
-        <form>
-          <FormGroup>
-            <Label text="Username" />
-            <Input
-              name="username"
-              value={this.state.username}
-              onChange={this.handleInputChange}
-              type="text"
+      <div>
+        <Header/>
+        <Container
+          classes="loginContainer"
+        >
+          <form>
+            <FormGroup>
+              <Label text="Username" />
+              <Input
+                name="username"
+                value={this.state.username}
+                onChange={this.handleInputChange}
+                type="text"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label text="Password" />
+              <Input
+                name="password"
+                value={this.state.password}
+                onChange={this.handleInputChange}
+                type="password"
+              />
+            </FormGroup>
+            {this.state.error ? <Small text={this.state.error} /> : ""}
+            <FormBtn
+              disabled={
+                this.state.username && this.state.password ? "" : "disabled"
+              }
+              text="Login"
+              onClick={this.login}
+              classes="btn-primary"
             />
-          </FormGroup>
-          <FormGroup>
-            <Label text="Password" />
-            <Input
-              name="password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-              type="password"
-            />
-          </FormGroup>
-          {this.state.error ? <Small text={this.state.error} /> : ""}
-          <FormBtn
-            disabled={
-              this.state.username && this.state.password ? "" : "disabled"
-            }
-            text="Login"
-            onClick={this.login}
-            classes="btn-primary"
-          />
-          <Link to="/register">Not registered? Click here.</Link>
-        </form>
-      </Container>
+            <Link to="/register">Not registered? Click here.</Link>
+          </form>
+        </Container>
+        <Footer/>
+      </div>
     );
   }
 }

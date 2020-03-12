@@ -131,15 +131,15 @@ class ClientInput extends Component {
                                 />
                             </FormGroup>
                             <FormGroup>
-                                {/* <Label text="State" />
+                                <Label text="State" />
                                 <Input
                                     name="state"
                                     value={this.state.state}
                                     onChange={this.handleInputChange}
                                     type="state"
-                                /> */}
+                                />
 
-                                <Label text="State" />
+                                {/* <Label text="State" />
                                 <div className="dropdown">
                                     <select className="form-control" name="state" value={this.state.state}
                                         onChange={this.handleInputChange}
@@ -196,7 +196,7 @@ class ClientInput extends Component {
                                         <option>WV</option>
                                         <option>WY</option>
                                     </select>
-                                </div>
+                                </div> */}
 
                             </FormGroup>
                             <FormGroup>
@@ -227,15 +227,15 @@ class ClientInput extends Component {
                                 />
                             </FormGroup>
                             <FormGroup>
-                                {/* <Label text="Dwelling Type" />
+                                <Label text="Dwelling Type" />
                                 <Input
                                     name="dwelling"
                                     value={this.state.dwelling}
                                     onChange={this.handleInputChange}
                                     type="dwelling"
-                                /> */}
+                                />
 
-                                <Label text="Dwelling Type"/>
+                                {/* <Label text="Dwelling Type"/>
                                 <div className="dropdown">
                                     <select className="form-control" name="dwelling" value={this.state.dwelling}
                                         onChange={this.handleInputChange}
@@ -246,7 +246,7 @@ class ClientInput extends Component {
                                         <option>Town Home</option>
                                         <option>Apartment</option>
                                     </select>
-                                </div>
+                                </div> */}
 
                             </FormGroup>
                             <FormGroup>
