@@ -4,6 +4,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import { Link } from 'react-router-dom'
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import "./home.css"
 
 function Home({ logout }) {
@@ -43,6 +44,7 @@ function Home({ logout }) {
           </Jumbotron>
         </Col>
       </Row>
+      <Footer />
     </div>
   );
 }

@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import { Container } from "../../components/Grid";
 import ClientRow from "../../components/ClientRow"
 import Header from "../../components/Header"
+import Footer from "../../components/Footer"
+import { Col, Row, Container } from "../../components/Grid";
+import { FormBtn } from "../../components/Form"
+import Jumbotron from "../../components/Jumbotron";
+import { Link } from 'react-router-dom'
 import "./style.css"
 
 class Clients extends Component {
@@ -21,7 +25,7 @@ class Clients extends Component {
                     let year = parseInt(createdString3[0])
                     let month = parseInt(createdString3[1])
                     let day = parseInt(createdString3[2])
-                    let created = (month+"/"+(day)+"/"+year)
+                    let created = (month + "/" + (day) + "/" + year)
                     res.data[i].createdAt = created
                 }
                 console.log(res.data)
@@ -40,6 +44,32 @@ class Clients extends Component {
         return (
             <div>
                 <Header />
+                <Col size="md-12">
+                    <Jumbotron data-aos="zoom-in">
+                        <h1>Clients</h1>
+                        <hr></hr>
+                        <ul className="homeUL text-left">
+                            <li>Select a client from the list below to view assessement results</li>
+                            <li>The most recent client will be posted at the top of the list</li>
+                        </ul>
+                        <hr></hr>
+                        <Row>
+                            <Col size="sm-3"></Col>
+                            <Col size="sm-3">
+                                <Link to="/">
+                                    <button type="button" className="btn btn-outline-success homeBtn">Home</button>
+                                </Link>
+                            </Col>
+                            <Col size="sm-3">
+                                <Link to="/clientinput">
+                                    <button type="button" className="btn btn-outline-success homeBtn">New Assessment</button>
+                                </Link>
+                            </Col>
+                            <Col size="sm-3"></Col>
+
+                        </Row>
+                    </Jumbotron>
+                </Col>
                 <Container fluid>
                     <div className="text-center">
                         <div className="row headings">
@@ -81,6 +111,7 @@ class Clients extends Component {
                         </div>
                     </div>
                 </Container>
+                <Footer/>
             </div>
         )
     }

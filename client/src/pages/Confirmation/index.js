@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
 import Header from "../../components/Header"
 import Jumbotron from "../../components/Jumbotron"
+import Footer from "../../components/Footer"
 import "./style.css"
 
 class Confirmation extends Component {
@@ -20,7 +21,7 @@ class Confirmation extends Component {
 
     render() {
         return this.state.redirect
-            ? <Redirect to="/" />
+            ? <Redirect to="/clients" />
             :
             <div>
                 <Header />
@@ -34,37 +35,15 @@ class Confirmation extends Component {
                         <hr></hr>
                         <div className="row">
                             <div className="col-sm">
-                                <p>You will be redirected back to the home page shortly</p>
+                                <p>You will be redirected to the clients page shortly</p>
                             </div>
                         </div>
                     </div>
                 </Jumbotron>
+                <Footer/>
             </div>
     }
 
-    // render() {
-    //     return (
-    //         <div>
-    //             <Header />
-    //             <Jumbotron>
-    //                 <div className="jContent">
-    //                     <div className="row">
-    //                         <div className="col-sm">
-    //                             <h3>Assessment Submitted</h3>
-    //                         </div>
-    //                     </div>
-    //                     <hr></hr>
-    //                     <div className="row">
-    //                         <div className="col-sm">
-    //                             <p>You will be redirected back to the home page shortly</p>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //             </Jumbotron>
-    //         </div>
-    //     )
-
-    // }
 }
 
 export default Confirmation

@@ -6,10 +6,8 @@ class Header extends Component {
     render() {
         return (
             <div>
-                <nav className="navbar navbar-expand-lg d-flex justify-content-center">
-                    <Link to="/">
-                        <img className="GALimg" src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" alt="mainImg"></img>
-                    </Link>
+                <nav className="navbar navbar-expand-lg d-flex justify-content-center head">
+                    <h3>Golden Age Living</h3>
                 </nav>
             </div>
         )

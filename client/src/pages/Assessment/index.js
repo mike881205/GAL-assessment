@@ -5,6 +5,7 @@ import AssessQuestion from "../../components/AssessQuestion"
 import Header from "../../components/Header"
 import Jumbotron from "../../components/Jumbotron";
 import { Redirect } from 'react-router-dom'
+import Footer from "../../components/Footer"
 import "./style.css"
 
 class Assessment extends Component {
@@ -70,10 +71,6 @@ class Assessment extends Component {
                 responses[i].comment = responses[i + 2].comment
                 submission.push(responses[i])
             }
-            // else if ((responses[i].response === "Response" || responses[i].response === "") && responses[i].observation === "" && responses[i].comment === "") {
-            //     alert("you have unanswered responses")
-            //     return
-            // }
         }
 
         for (let i = 0; i < submission.length; i++) {
@@ -106,9 +103,6 @@ class Assessment extends Component {
             return (
                 <div>
                     <Header />
-                    {/* <row className="d-flex justify-content-center ">
-                        <img src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" alt="mainImg"></img>
-                    </row> */}
                     <Jumbotron>
                         <div className="row">
                             <div className="col-sm">
@@ -147,7 +141,6 @@ class Assessment extends Component {
                                         id={question.id}
                                         section={question.SectionId}
                                         question={question.question}
-                                        // response={"yes"}
                                         className="questions"
                                     />
                                 ))}
@@ -155,6 +148,7 @@ class Assessment extends Component {
                         ))}
                         <button type="submit" className="btn btn-primary btn-lg">Submit Assessment</button>
                     </form>
+                    <Footer/>
                 </div>
             );
         } else {
@@ -167,10 +161,3 @@ class Assessment extends Component {
 }
 
 export default Assessment;
-
-    // handleInputChange = event => {
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //         [name]: value.trim()
-    //     });
-    // };

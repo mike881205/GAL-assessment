@@ -4,6 +4,7 @@ import { Container } from "../../components/Grid";
 import { Redirect } from 'react-router-dom'
 import API from "../../utils/API";
 import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 import "./style.css";
 
 class ClientInput extends Component {
@@ -21,7 +22,8 @@ class ClientInput extends Component {
         audit: "",
         dwelling: "",
         gateCode: "",
-        clientAdded: false
+        clientAdded: false,
+
     };
 
     addClient = event => {
@@ -237,7 +239,7 @@ class ClientInput extends Component {
                                 <div className="dropdown">
                                     <select className="form-control" name="dwelling" value={this.state.dwelling}
                                         onChange={this.handleInputChange}
-                                        type="dwelling">
+                                        type="dwelling" title="Dropdown button">
                                         <option defaultValue="" disabled selected>Select Dwelling Type</option>
                                         <option>House</option>
                                         <option>Condo</option>
@@ -267,6 +269,7 @@ class ClientInput extends Component {
                             />
                         </form>
                     </Container>
+                    <Footer/>
                 </div>
             );
         } else {
