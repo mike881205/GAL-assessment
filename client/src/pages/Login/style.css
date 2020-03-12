@@ -3,7 +3,11 @@ body {
 }
 
 .loginContainer {
-  padding-top: 8%;
+  padding-top: 3%;
   padding-bottom: 5%;
   width: 300px;
+}
+
+.reg {
+  color: black;
 }

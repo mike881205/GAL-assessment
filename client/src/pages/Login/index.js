@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FormGroup, Input, Label, Small, FormBtn } from "../../components/Form";
 import { Container } from "../../components/Grid";
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
 import API from "../../utils/API";
 import "./style.css";
 
@@ -52,10 +50,13 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <Header/>
         <Container
-          classes="loginContainer"
-        >
+          classes="loginContainer">
+          <div className="row d-flex justify-content-center">
+            <div className="col-lg">
+              <h2>Please Sign In</h2>
+            </div>
+          </div>
           <form>
             <FormGroup>
               <Label text="Username" />
@@ -87,7 +88,6 @@ class Login extends Component {
             <Link to="/register">Not registered? Click here.</Link>
           </form>
         </Container>
-        <Footer/>
       </div>
     );
   }
