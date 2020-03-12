@@ -74,7 +74,7 @@ class App extends Component {
     return (
       <Router>
         <div className="mainApp">
-          {/* <Switch>
+          <Switch>
             <Route exact path="/">
               {this.state.authorized ? (
                 <Home logout={this.logout} />
@@ -96,43 +96,53 @@ class App extends Component {
                   <Register isAuthorized={this.isAuthorized} />
                 )}
             </Route>
+            <Route exact path="/clientinput">
+              {this.state.authorized ? (
+                <ClientInput setClient={this.setClient} client={this.state.client} />
+              ) : (
+                  <Redirect to="/login" />
+                )}
+            </Route>
+            <Route exact path="/clients">
+              {this.state.authorized ? (
+                <Clients setClientResults={this.setClientResults} />
+              ) : (
+                  <Redirect to="/login" />
+                )}
+            </Route>
+            <Route exact path="/assessment">
+              {this.state.authorized ? (
+                <Assessment setResults={this.setResults} clientID={this.state.client.id} />
+              ) : (
+                  <Redirect to="/login" />
+                )}
+            </Route>
+            <Route exact path="/confirmation">
+              {this.state.authorized ? (
+                <Confirmation />
+              ) : (
+                  <Redirect to="/login" />
+                )}
+            </Route>
+            <Route exact path="/clientresults">
+              {this.state.authorized ? (
+                <ClientResults clientResults={this.state.clientResults} />
+              ) : (
+                  <Redirect to="/login" />
+                )}
+            </Route>
             <Route>
               <Redirect to="/" />
             </Route>
-          </Switch> */}
-
-          <Route exact path="/">
-            <Home logout={this.logout} />
-          </Route>
-          <Route exact path="/clientinput">
-            <ClientInput setClient={this.setClient} client={this.state.client} />
-          </Route>
-          <Route exact path="/clients">
-            <Clients setClientResults={this.setClientResults} />
-          </Route>
-          <Route exact path="/assessment">
-            <Assessment setResults={this.setResults} clientID={this.state.client.id} />
-          </Route>
-          <Route exact path="/confirmation">
-            <Confirmation />
-          </Route>
-          <Route exact path="/clientresults">
-            <ClientResults clientResults={this.state.clientResults} />
-          </Route>
-
-
+          </Switch>
           {/* <Route exact path="/results">
             <Results results={this.state.results} />
           </Route> */}
-
-
           {/* <Route exact path="/">
             <QuestionInput inputQuestion={this.inputQuestion}></QuestionInput>
           </Route> */}
-
         </div>
       </Router>
-
     );
   }
 }
