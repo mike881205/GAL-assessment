@@ -44,32 +44,6 @@ class Clients extends Component {
         return (
             <div>
                 <Header />
-                <Col size="md-12">
-                    <Jumbotron data-aos="zoom-in">
-                        <h1>Clients</h1>
-                        <hr></hr>
-                        <ul className="homeUL text-left">
-                            <li>Select a client from the list below to view assessement results</li>
-                            <li>The most recent client will be posted at the top of the list</li>
-                        </ul>
-                        <hr></hr>
-                        <Row>
-                            <Col size="sm-3"></Col>
-                            <Col size="sm-3">
-                                <Link to="/">
-                                    <button type="button" className="btn btn-outline-success homeBtn">Home</button>
-                                </Link>
-                            </Col>
-                            <Col size="sm-3">
-                                <Link to="/clientinput">
-                                    <button type="button" className="btn btn-outline-success homeBtn">New Assessment</button>
-                                </Link>
-                            </Col>
-                            <Col size="sm-3"></Col>
-
-                        </Row>
-                    </Jumbotron>
-                </Col>
                 <Container fluid>
                     <div className="text-center">
                         <div className="row headings">
@@ -111,7 +85,7 @@ class Clients extends Component {
                         </div>
                     </div>
                 </Container>
-                <Footer/>
+                <Footer />
             </div>
         )
     }

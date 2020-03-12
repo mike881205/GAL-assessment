@@ -15,8 +15,10 @@ body {
 
 .homeBtn {
     background-color: #F191D0!important;
-    color: black!important;
-    border-color: black;
+    color: black;
+    border-style: solid!important;
+    border-color: black!important;
+    border-width: thin!important;
 }
 
 .homeUL {
