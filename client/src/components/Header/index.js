@@ -11,11 +11,11 @@ class Header extends Component {
                 </nav> */}
 
                 <nav class="navbar navbar-expand-lg d-flex justify-content-center head">
-                    <div className="row d-flex justify-content-center">
+                    {/* <div className="row d-flex justify-content-center">
                         <div className="col-lg">
                             <img src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" className="rounded mx-auto d-block GALimg" alt="logo"></img>
                         </div>
-                    </div>
+                    </div> */}
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon">Nav</span>
                     </button>

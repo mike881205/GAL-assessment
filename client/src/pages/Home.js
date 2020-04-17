@@ -11,11 +11,11 @@ function Home({ logout }) {
   return (
     <div>
       <Header />
-      <div className="row d-flex justify-content-center logoImg">
+      {/* <div className="row d-flex justify-content-center logoImg">
         <div className="col-lg">
           <img src="https://www.goldenageliving.com/wp-content/uploads/2017/11/Goldenageliving-logo-web.jpg" class="rounded mx-auto d-block" alt="logo"></img>
         </div>
-      </div>
+      </div> */}
       <Row>
         <Col size="md-12">
           <Jumbotron data-aos="zoom-in">
