@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "bcrypt": "^3.0.4",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "concurrently": "^4.1.0",
     "dotenv": "^6.2.0",
